@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | SchoolSys</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --sidebar-width: 250px;
+            --topbar-height: 60px;
+            --primary-color: #3f51b5;
+            --secondary-color: #f5f5f5;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            overflow-x: hidden;
+        }
+        
+        /* Top Navigation Bar */
+        .topbar {
+            height: var(--topbar-height);
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: var(--sidebar-width);
+            z-index: 1000;
+            transition: left 0.3s;
+        }
+        
+        .topbar-brand {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .sidebar-toggler {
+            cursor: pointer;
+            font-size: 1.25rem;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            width: var(--sidebar-width);
+            height: 100vh;
+            background-color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            z-index: 1100;
+        }
+        
+        .sidebar-collapsed {
+            transform: translateX(-100%);
+        }
+        
+        .sidebar-brand {
+            height: var(--topbar-height);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 1.25rem;
+            color: var(--primary-color);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .sidebar-menu {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .sidebar-menu li {
+            position: relative;
+        }
+        
+        .sidebar-menu li a {
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            color: #555;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .sidebar-menu li a:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+            color: var(--primary-color);
+        }
+        
+        .sidebar-menu li a.active {
+            background-color: rgba(63, 81, 181, 0.1);
+            color: var(--primary-color);
+            border-left: 3px solid var(--primary-color);
+        }
+        
+        .sidebar-menu li a i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .sidebar-menu .menu-title {
+            padding: 10px 20px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #999;
+            font-weight: 600;
+        }
+        
+        .sidebar-menu .submenu {
+            list-style: none;
+            padding-left: 40px;
+            display: none;
+        }
+        
+        .sidebar-menu .submenu.show {
+            display: block;
+        }
+        
+        .sidebar-menu .has-submenu > a::after {
+            content: '\f078';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            margin-left: auto;
+            font-size: 0.75rem;
+            transition: transform 0.3s;
+        }
+        
+        .sidebar-menu .has-submenu.active > a::after {
+            transform: rotate(180deg);
+        }
+        
+        /* Main Content */
+        .main-content {
+            margin-left: var(--sidebar-width);
+            margin-top: var(--topbar-height);
+            padding: 20px;
+            min-height: calc(100vh - var(--topbar-height));
+            transition: margin-left 0.3s;
+        }
+        
+        .main-content-expanded {
+            margin-left: 0;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: white;
+            padding: 15px var(--sidebar-width) 15px 20px;
+            text-align: center;
+            font-size: 0.875rem;
+            color: #777;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            margin-left: var(--sidebar-width);
+            transition: margin-left 0.3s;
+        }
+        
+        .footer-expanded {
+            margin-left: 0;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+            
+            .sidebar.show {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+            }
+            
+            .topbar {
+                left: 0;
+            }
+            
+            .footer {
+                margin-left: 0;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }
+        
+        /* Tenant Switch Dropdown */
+        .tenant-switch .dropdown-menu {
+            width: 250px;
+        }
+        
+        .tenant-item {
+            display: flex;
+            align-items: center;
+            padding: 8px 15px;
+        }
+        
+        .tenant-item img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 10px;
+            object-fit: cover;
+        }
+        
+        .tenant-item.active {
+            background-color: rgba(63, 81, 181, 0.1);
+        }
+        
+        /* Notification Dropdown */
+        .notification-dropdown .dropdown-menu {
+            width: 300px;
+        }
+        
+        .notification-item {
+            padding: 10px 15px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .notification-item.unread {
+            background-color: rgba(63, 81, 181, 0.05);
+        }
+        
+        .notification-item:hover {
+            background-color: rgba(0, 0, 0, 0.03);
+        }
+        
+        /* Dashboard Cards */
+        .dashboard-card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+            <i class="fas fa-school me-2"></i>
+            <span>SchoolSys</span>
+        </div>
+        <ul class="sidebar-menu" id="roleBasedMenu">
+            <!-- Menu will be populated by JavaScript based on user role -->
+        </ul>
+    </div>
+
+    <!-- Top Navigation Bar -->
+    <nav class="topbar navbar navbar-expand">
+        <div class="container-fluid">
+            <div class="d-flex align-items-center">
+                <button class="sidebar-toggler me-3 d-lg-none" id="sidebarToggleMobile">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <button class="sidebar-toggler me-3 d-none d-lg-block" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <span class="topbar-brand d-none d-md-block">Dashboard</span>
+            </div>
+            
+            <div class="d-flex align-items-center">
+                <!-- Tenant Switch -->
+                <div class="dropdown tenant-switch me-3">
+                    <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="tenantDropdown" data-bs-toggle="dropdown">
+                        <i class="fas fa-building me-1"></i>
+                        <span id="currentTenant">Greenwood High</span>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-end">
+                        <h6 class="dropdown-header">Your Schools</h6>
+                        <a class="dropdown-item tenant-item active" href="#">
+                            <img src="https://via.placeholder.com/30" alt="School Logo">
+                            <div>
+                                <div>Greenwood High</div>
+                                <small class="text-muted">Administrator</small>
+                            </div>
+                        </a>
+                        <a class="dropdown-item tenant-item" href="#">
+                            <img src="https://via.placeholder.com/30" alt="School Logo">
+                            <div>
+                                <div>Riverside Academy</div>
+                                <small class="text-muted">Teacher</small>
+                            </div>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">
+                            <i class="fas fa-plus me-2"></i> Add New School
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Notifications -->
+                <div class="dropdown notification-dropdown me-3">
+                    <button class="btn btn-link text-dark position-relative" type="button" id="notificationDropdown" data-bs-toggle="dropdown">
+                        <i class="fas fa-bell"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            3
+                        </span>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-end">
+                        <h6 class="dropdown-header">Notifications</h6>
+                        <a class="dropdown-item notification-item unread" href="#">
+                            <div class="d-flex justify-content-between">
+                                <strong>New Assignment</strong>
+                                <small class="text-muted">2m ago</small>
+                            </div>
+                            <p class="mb-0 small">Math homework due tomorrow</p>
+                        </a>
+                        <a class="dropdown-item notification-item" href="#">
+                            <div class="d-flex justify-content-between">
+                                <strong>Attendance Alert</strong>
+                                <small class="text-muted">1h ago</small>
+                            </div>
+                            <p class="mb-0 small">3 students absent today</p>
+                        </a>
+                        <a class="dropdown-item notification-item" href="#">
+                            <div class="d-flex justify-content-between">
+                                <strong>School Event</strong>
+                                <small class="text-muted">5h ago</small>
+                            </div>
+                            <p class="mb-0 small">Parent-teacher meeting scheduled</p>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-center" href="#">View All</a>
+                    </div>
+                </div>
+                
+                <!-- User Profile -->
+                <div class="dropdown">
+                    <button class="btn btn-link text-dark dropdown-toggle d-flex align-items-center" type="button" id="userDropdown" data-bs-toggle="dropdown">
+                        <img src="https://via.placeholder.com/40" alt="User" class="rounded-circle me-2" width="32" height="32">
+                        <span class="d-none d-md-inline">John Doe</span>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-end">
+                        <a class="dropdown-item" href="#">
+                            <i class="fas fa-user me-2"></i> Profile
+                        </a>
+                        <a class="dropdown-item" href="#">
+                            <i class="fas fa-cog me-2"></i> Settings
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">
+                            <i class="fas fa-sign-out-alt me-2"></i> Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <div class="container-fluid">
+            <!-- Role-based content will be loaded here -->
+            <div id="roleBasedContent"></div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    &copy; 2023 SchoolSys. All rights reserved.
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <span class="me-3">v2.5.1</span>
+                    <a href="#" class="text-decoration-none me-3">Help</a>
+                    <a href="#" class="text-decoration-none">Privacy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Sidebar toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const sidebar = document.getElementById('sidebar');
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const sidebarToggleMobile = document.getElementById('sidebarToggleMobile');
+            const mainContent = document.getElementById('mainContent');
+            const footer = document.getElementById('footer');
+            
+            // Desktop toggle
+            if (sidebarToggle) {
+                sidebarToggle.addEventListener('click', function() {
+                    sidebar.classList.toggle('sidebar-collapsed');
+                    mainContent.classList.toggle('main-content-expanded');
+                    footer.classList.toggle('footer-expanded');
+                });
+            }
+            
+            // Mobile toggle
+            if (sidebarToggleMobile) {
+                sidebarToggleMobile.addEventListener('click', function() {
+                    sidebar.classList.toggle('show');
+                });
+            }
+            
+            // Submenu toggle
+            document.querySelectorAll('.has-submenu > a').forEach(item => {
+                item.addEventListener('click', function(e) {
+                    if (window.innerWidth > 992) {
+                        e.preventDefault();
+                        const submenu = this.nextElementSibling;
+                        this.parentElement.classList.toggle('active');
+                        submenu.classList.toggle('show');
+                    }
+                });
+            });
+            
+            // Load role-based menu and content
+            loadRoleBasedContent('admin'); // Default to admin, change based on actual user role
+        });
+        
+        // Function to load role-based content
+        function loadRoleBasedContent(role) {
+            const menuContainer = document.getElementById('roleBasedMenu');
+            const contentContainer = document.getElementById('roleBasedContent');
+            
+            // Clear existing content
+            menuContainer.innerHTML = '';
+            contentContainer.innerHTML = '';
+            
+            // Common menu items
+            const commonMenuItems = [
+                { 
+                    title: 'Main', 
+                    items: [
+                        { icon: 'fas fa-tachometer-alt', text: 'Dashboard', link: '#', active: true },
+                        { icon: 'fas fa-calendar', text: 'Calendar', link: '#' }
+                    ]
+                }
+            ];
+            
+            // Role-specific menu items
+            const roleMenuItems = {
+                admin: [
+                    { 
+                        title: 'Administration', 
+                        items: [
+                            { icon: 'fas fa-users', text: 'Students', link: '#' },
+                            { icon: 'fas fa-chalkboard-teacher', text: 'Teachers', link: '#' },
+                            { icon: 'fas fa-user-tie', text: 'Staff', link: '#' },
+                            { icon: 'fas fa-building', text: 'Classes', link: '#' }
+                        ]
+                    },
+                    { 
+                        title: 'Management', 
+                        items: [
+                            { icon: 'fas fa-book', text: 'Academics', link: '#', submenu: [
+                                { text: 'Subjects', link: '#' },
+                                { text: 'Timetable', link: '#' },
+                                { text: 'Syllabus', link: '#' }
+                            ]},
+                            { icon: 'fas fa-money-bill-wave', text: 'Finance', link: '#' },
+                            { icon: 'fas fa-chart-line', text: 'Reports', link: '#' },
+                            { icon: 'fas fa-cog', text: 'Settings', link: '#' }
+                        ]
+                    }
+                ],
+                teacher: [
+                    { 
+                        title: 'Teaching', 
+                        items: [
+                            { icon: 'fas fa-book-open', text: 'My Classes', link: '#' },
+                            { icon: 'fas fa-tasks', text: 'Assignments', link: '#' },
+                            { icon: 'fas fa-graduation-cap', text: 'Grades', link: '#' },
+                            { icon: 'fas fa-clock', text: 'Attendance', link: '#' }
+                        ]
+                    },
+                    { 
+                        title: 'Resources', 
+                        items: [
+                            { icon: 'fas fa-book', text: 'Lesson Plans', link: '#' },
+                            { icon: 'fas fa-file-alt', text: 'Exams', link: '#' },
+                            { icon: 'fas fa-chart-bar', text: 'Performance', link: '#' }
+                        ]
+                    }
+                ],
+                student: [
+                    { 
+                        title: 'Learning', 
+                        items: [
+                            { icon: 'fas fa-book', text: 'My Subjects', link: '#' },
+                            { icon: 'fas fa-tasks', text: 'Assignments', link: '#' },
+                            { icon: 'fas fa-chart-line', text: 'Grades', link: '#' },
+                            { icon: 'fas fa-calendar-check', text: 'Attendance', link: '#' }
+                        ]
+                    },
+                    { 
+                        title: 'Activities', 
+                        items: [
+                            { icon: 'fas fa-calendar', text: 'Events', link: '#' },
+                            { icon: 'fas fa-users', text: 'Clubs', link: '#' },
+                            { icon: 'fas fa-file-invoice-dollar', text: 'Fees', link: '#' }
+                        ]
+                    }
+                ],
+                parent: [
+                    { 
+                        title: 'Children', 
+                        items: [
+                            { icon: 'fas fa-user-graduate', text: 'My Children', link: '#' },
+                            { icon: 'fas fa-tasks', text: 'Assignments', link: '#' },
+                            { icon: 'fas fa-chart-line', text: 'Progress', link: '#' },
+                            { icon: 'fas fa-calendar-check', text: 'Attendance', link: '#' }
+                        ]
+                    },
+                    { 
+                        title: 'School', 
+                        items: [
+                            { icon: 'fas fa-calendar', text: 'Events', link: '#' },
+                            { icon: 'fas fa-file-invoice-dollar', text: 'Payments', link: '#' },
+                            { icon: 'fas fa-comments', text: 'Messages', link: '#' }
+                        ]
+                    }
+                ]
+            };
+            
+            // Combine common and role-specific menu items
+            const allMenuItems = [...commonMenuItems, ...roleMenuItems[role]];
+            
+            // Generate menu HTML
+            allMenuItems.forEach(menuGroup => {
+                // Add menu title
+                const titleElement = document.createElement('li');
+                titleElement.className = 'menu-title';
+                titleElement.textContent = menuGroup.title;
+                menuContainer.appendChild(titleElement);
+                
+                // Add menu items
+                menuGroup.items.forEach(item => {
+                    const li = document.createElement('li');
+                    li.className = item.active ? 'active' : '';
+                    
+                    if (item.submenu) {
+                        li.className += ' has-submenu';
+                        const submenuItems = item.submenu.map(subItem => 
+                            `<li><a href="${subItem.link}">${subItem.text}</a></li>`
+                        ).join('');
+                        
+                        li.innerHTML = `
+                            <a href="${item.link}">
+                                <i class="${item.icon}"></i>
+                                <span>${item.text}</span>
+                            </a>
+                            <ul class="submenu">
+                                ${submenuItems}
+                            </ul>
+                        `;
+                    } else {
+                        li.innerHTML = `
+                            <a href="${item.link}" class="${item.active ? 'active' : ''}">
+                                <i class="${item.icon}"></i>
+                                <span>${item.text}</span>
+                            </a>
+                        `;
+                    }
+                    
+                    menuContainer.appendChild(li);
+                });
+            });
+            
+            // Generate role-based dashboard content
+            const dashboardContent = {
+                admin: `
+                    <div class="row mb-4">
+                        <div class="col-12">
+                            <h2 class="fw-bold">School Overview</h2>
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                    
+                    <div class="row g-4 mb-4">
+                        <div class="col-md-6 col-lg-3">
+                            <div class="dashboard-card card">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="text-muted mb-2">Total Students</h6>
+                                            <h3 class="mb-0">1,245</h3>
+                                        </div>
+                                        <div class="card-icon">
+                                            <i class="fas fa-users"></i>
+                                        </div>
+                                    </div>
+                                    <div class="mt-3">
+                                        <span class="text-success"><i class="fas fa-caret-up me-1"></i> 12.5%</span>
+                                        <span class="text-muted ms-2">Since last month</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 col-lg-3">
+                            <div class="dashboard-card card">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="text-muted mb-2">Total Teachers</h6>
+                                            <h3 class="mb-0">68</h3>
+                                        </div>
+                                        <div class="card-icon">
+                                            <i class="fas fa-chalkboard-teacher"></i>
+                                        </div>
+                                    </div>
+                                    <div class="mt-3">
+                                        <span class="text-success"><i class="fas fa-caret-up me-1"></i> 5.2%</span>
+                                        <span class="text-muted ms-2">Since last month</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 col-lg-3">
+                            <div class="dashboard-card card">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="text-muted mb-2">Classes</h6>
+                                            <h3 class="mb-0">42</h3>
+                                        </div>
+                                        <div class="card-icon">
+                                            <i class="fas fa-door-open"></i>
+                                        </div>
+                                    </div>
+                                    <div class="mt-3">
+                                        <span class="text-success"><i class="fas fa-caret-up me-1"></i> 3.8%</span>
+                                        <span class="text-muted ms-2">Since last month</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 col-lg-3">
+                            <div class="dashboard-card card">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="text-muted mb-2">Revenue</h6>
+                                            <h3 class="mb-0">$24,580</h3>
+                                        </div>
+                                        <div class="card-icon">
+                                            <i class="fas fa-dollar-sign"></i>
+                                        </div>
+                                    </div>
+                                    <div class="mt-3">
+                                        <span class="text-danger"><i class="fas fa-caret-down me-1"></i> 2.4%</span>
+                                        <span class="text-muted ms-2">Since last month</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row g-4">
+                        <div class="col-lg-8">
+                            <div class="card dashboard-card">
+                                <div class="card-header bg-white border-0">
+                                    <h5 class="mb-0">Attendance Overview</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div id="attendanceChart" style="height: 300px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="card dashboard-card">
+                                <div class="card-header bg-white border-0">
+                                    <h5 class="mb-0">Recent Activities</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="list-group list-group-flush">
+                                        <div class="list-group-item border-0 px-0 py-2">
+                                            <div class="d-flex">
+                                                <div class="me-3">
+                                                    <span class="avatar avatar-sm bg-primary text-white rounded-circle">JD</span>
+                                                </div>
+                                                <div>
+                                                    <small class="text-muted">10 min ago</small>
+                                                    <p class="mb-0">John Doe added new student</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="list-group-item border-0 px-0 py-2">
+                                            <div class="d-flex">
+                                                <div class="me-3">
+                                                    <span class="avatar avatar-sm bg-success text-white rounded-circle">MS</span>
+                                                </div>
+                                                <div>
+                                                    <small class="text-muted">25 min ago</small>
+                                                    <p class="mb-0">Mark Smith updated timetable</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="list-group-item border-0 px-0 py-2">
+                                            <div class="d-flex">
+                                                <div class="me-3">
+                                                    <span class="avatar avatar-sm bg-info text-white rounded-circle">SJ</span>
+                                                </div>
+                                                <div>
+                                                    <small class="text-muted">1 hour ago</small>
+                                                    <p class="mb-0">Sarah Johnson created new assignment</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="list-group-item border-0 px-0 py-2">
+                                            <div class="d-flex">
+                                                <div class="me-3">
+                                                    <span class="avatar avatar-sm bg-warning text-white rounded-circle">AD</span>
+                                                </div>
+                                                <div>
+                                                    <small class="text-muted">2 hours ago</small>
+                                                    <p class="mb-0">Admin processed 5 payments</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="list-group-item border-0 px-0 py-2">
+                                            <div class="d-flex">
+                                                <div class="me-3">
+                                                    <span class="avatar avatar-sm bg-danger text-white rounded-circle">TP</span>
+                                                </div>
+                                                <div>
+                                                    <small class="text-muted">3 hours ago</small>
+                                                    <p class="mb-0">Teacher posted announcement</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `,
+                teacher: `
+                    <div class="row mb-4">
+                        <div class="col-12">
+                            <h2 class="fw-bold">Teacher Dashboard</h2>
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                    
+                    <div class="row g-4 mb-4">
+                        <div class="col-md-6 col-lg-3">
+                            <div class="dashboard-card card">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="text-muted mb-2">My Classes</h6>
+                                            <h3 class="mb-0">5</h3>
+                                        </div>
+                                        <div class="card-icon">
+                                            <i class="fas fa-door-open"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 col-lg-3">
+                            <div class="dashboard-card card">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="text-muted mb-2">Students</h6>
+                                            <h3 class="mb-0">142</h3>
+                                        </div>
+                                        <div class="card-icon">
+                                            <i class="fas fa-users"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 col-lg-3">
+                            <div class="dashboard-card card">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="text-muted mb-2">Pending Assignments</h6>
+                                            <h3 class="mb-0">24</h3>
+                                        </div>
+                                        <div class="card-icon">
+                                            <i class="fas fa-tasks"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 col-lg-3">
+                            <div class="dashboard-card card">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="text-muted mb-2">Today's Attendance</h6>
+                                            <h3 class="mb-0">92%</h3>
+                                        </div>
+                                        <div class="card-icon">
+                                            <i class="fas fa-calendar-check"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row g-4">
+                        <div class="col-lg-8">
+                            <div class="card dashboard-card">
+                                <div class="card-header bg-white border-0">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <h5 class="mb-0">Upcoming Classes</h5>
+                                        <a href="#" class="btn btn-sm btn-outline-primary">View All</a>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Time</th>
+                                                    <th>Class</th>
+                                                    <th>Subject</th>
+                                                    <th>Room</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>09:00 - 10:00</td>
+                                                    <td>Grade 10A</td>
+                                                    <td>Mathematics</td>
+                                                    <td>Room 205</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>10:15 - 11:15</td>
+                                                    <td>Grade 9B</td>
+                                                    <td>Science</td>
+                                                    <td>Lab 3</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>11:30 - 12:30</td>
+                                                    <td>Grade 11A</td>
+                                                    <td>Mathematics</td>
+                                                    <td>Room 210</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>13:30 - 14:30</td>
+                                                    <td>Grade 10B</td>
+                                                    <td>Science</td>
+                                                    <td>Lab 1</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>14:45 - 15:45</td>
+                                                    <td>Grade 12A</td>
+                                                    <td>Physics</td>
+                                                    <td>Room 305</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="card dashboard-card">
+                                <div class="card-header bg-white border-0">
+                                    <h5 class="mb-0">Assignment Due Soon</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="list-group list-group-flush">
+                                        <div class="list-group-item border-0 px-0 py-2">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <h6 class="mb-1">Math Homework</h6>
+                                                    <small class="text-muted">Grade 10A - Due tomorrow</small>
+                                                </div>
+                                                <span class="badge bg-primary rounded-pill">24</span>
+                                            </div>
+                                        </div>
+                                        <div class="list-group-item border-0 px-0 py-2">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <h6 class="mb-1">Science Project</h6>
+                                                    <small class="text-muted">Grade 9B - Due in 2 days</small>
+                                                </div>
+                                                <span class="badge bg-primary rounded-pill">18</span>
+                                            </div>
+                                        </div>
+                                        <div class="list-group-item border-0 px-0 py-2">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <h6 class="mb-1">Physics Lab Report</h6>
+                                                    <small class="text-muted">Grade 12A - Due in 3 days</small>
+                                                </div>
+                                                <span class="badge bg-primary rounded-pill">12</span>
+                                            </div>
+                                        </div>
+                                        <div class="list-group-item border-0 px-0 py-2">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <h6 class="mb-1">Algebra Test</h6>
+                                                    <small class="text-muted">Grade 11A - Due in 4 days</small>
+                                                </div>
+                                                <span class="badge bg-primary rounded-pill">30</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `,
+                student: `
+                    <div class="row mb-4">
+                        <div class="col-12">
+                            <h2 class="fw-bold">Student Dashboard</h2>
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                    
+                    <div class="row g-4 mb-4">
+                        <div class="col-md-6 col-lg-3">
+                            <div class="dashboard-card card">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="text-muted mb-2">My Classes</h6>
+                                            <h3 class="mb-0">6</h3>
+                                        </div>
+                                        <div class="card-icon">
+                                            <i class="fas fa-book"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 col-lg-3">
+                            <div class="dashboard-card card">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="text-muted mb-2">Assignments Due</h6>
+                                            <h3 class="mb-0">3</h3>
+                                        </div>
+                                        <div class="card-icon">
+                                            <i class="fas fa-tasks"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 col-lg-3">
+                            <div class="dashboard-card card">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="text-muted mb-2">Attendance</h6>
+                                            <h3 class="mb-0">95%</h3>
+                                        </div>
+                                        <div class="card-icon">
+                                            <i class="fas fa-calendar-check"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 col-lg-3">
+                            <div class="dashboard-card card">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="text-muted mb-2">GPA</h6>
+                                            <h3 class="mb-0">3.8</h3>
+                                        </div>
+                                        <div class="card-icon">
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row g-4">
+                        <div class="col-lg-8">
+                            <div class="card dashboard-card">
+                                <div class="card-header bg-white border-0">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <h5 class="mb-0">Today's Schedule</h5>
+                                        <a href="#" class="btn btn-sm btn-outline-primary">View Full Timetable</a>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Time</th>
+                                                    <th>Subject</th>
+                                                    <th>Teacher</th>
+                                                    <th>Room</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>08:00 - 09:00</td>
+                                                    <td>Mathematics</td>
+                                                    <td>Mr. Johnson</td>
+                                                    <td>Room 205</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>09:15 - 10:15</td>
+                                                    <td>Science</td>
+                                                    <td>Ms. Smith</td>
+                                                    <td>Lab 2</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>10:30 - 11:30</td>
+                                                    <td>English</td>
+                                                    <td>Mrs. Williams</td>
+                                                    <td>Room 104</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>11:45 - 12:45</td>
+                                                    <td>History</td>
+                                                    <td>Mr. Brown</td>
+                                                    <td>Room 203</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>13:30 - 14:30</td>
+                                                    <td>Physical Education</td>
+                                                    <td>Coach Davis</td>
+                                                    <td>Gym</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="card dashboard-card">
+                                <div class="card-header bg-white border-0">
+                                    <h5 class="mb-0">Upcoming Assignments</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="list-group list-group-flush">
+                                        <div class="list-group-item border-0 px-0 py-2">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <h6 class="mb-1">Math Homework</h6>
+                                                    <small class="text-muted">Due tomorrow</small>
+                                                </div>
+                                                <span class="badge bg-warning rounded-pill">Pending</span>
+                                            </div>
+                                        </div>
+                                        <div class="list-group-item border-0 px-0 py-2">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <h6 class="mb-1">Science Project</h6>
+                                                    <small class="text-muted">Due in 2 days</small>
+                                                </div>
+                                                <span class="badge bg-warning rounded-pill">Pending</span>
+                                            </div>
+                                        </div>
+                                        <div class="list-group-item border-0 px-0 py-2">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <h6 class="mb-1">English Essay</h6>
+                                                    <small class="text-muted">Due in 3 days</small>
+                                                </div>
+                                                <span class="badge bg-warning rounded-pill">Pending</span>
+                                            </div>
+                                        </div>
+                                        <div class="list-group-item border-0 px-0 py-2">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <h6 class="mb-1">History Presentation</h6>
+                                                    <small class="text-muted">Due in 5 days</small>
+                                                </div>
+                                                <span class="badge bg-warning rounded-pill">Pending</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `,
+                parent: `
+                    <div class="row mb-4">
+                        <div class="col-12">
+                            <h2 class="fw-bold">Parent Dashboard</h2>
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                    
+                    <div class="row g-4 mb-4">
+                        <div class="col-md-6 col-lg-3">
+                            <div class="dashboard-card card">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="text-muted mb-2">Children</h6>
+                                            <h3 class="mb-0">2</h3>
+                                        </div>
+                                        <div class="card-icon">
+                                            <i class="fas fa-child"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 col-lg-3">
+                            <div class="dashboard-card card">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="text-muted mb-2">Attendance</h6>
+                                            <h3 class="mb-0">94%</h3>
+                                        </div>
+                                        <div class="card-icon">
+                                            <i class="fas fa-calendar-check"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 col-lg-3">
+                            <div class="dashboard-card card">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="text-muted mb-2">Pending Fees</h6>
+                                            <h3 class="mb-0">$120</h3>
+                                        </div>
+                                        <div class="card-icon">
+                                            <i class="fas fa-file-invoice-dollar"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 col-lg-3">
+                            <div class="dashboard-card card">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="text-muted mb-2">Unread Messages</h6>
+                                            <h3 class="mb-0">3</h3>
+                                        </div>
+                                        <div class="card-icon">
+                                            <i class="fas fa-envelope"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row g-4">
+                        <div class="col-lg-8">
+                            <div class="card dashboard-card">
+                                <div class="card-header bg-white border-0">
+                                    <h5 class="mb-0">My Children</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Grade</th>
+                                                    <th>Attendance</th>
+                                                    <th>GPA</th>
+                                                    <th>Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <div class="d-flex align-items-center">
+                                                            <img src="https://via.placeholder.com/40" alt="Student" class="rounded-circle me-3" width="40" height="40">
+                                                            <div>
+                                                                <h6 class="mb-0">Emma Johnson</h6>
+                                                                <small class="text-muted">Grade 10A</small>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>10</td>
+                                                    <td>
+                                                        <div class="progress" style="height: 6px;">
+                                                            <div class="progress-bar bg-success" style="width: 96%"></div>
+                                                        </div>
+                                                        <small>96%</small>
+                                                    </td>
+                                                    <td>3.9</td>
+                                                    <td><span class="badge bg-success">Excellent</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="d-flex align-items-center">
+                                                            <img src="https://via.placeholder.com/40" alt="Student" class="rounded-circle me-3" width="40" height="40">
+                                                            <div>
+                                                                <h6 class="mb-0">Noah Johnson</h6>
+                                                                <small class="text-muted">Grade 8B</small>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>8</td>
+                                                    <td>
+                                                        <div class="progress" style="height: 6px;">
+                                                            <div class="progress-bar bg-warning" style="width: 92%"></div>
+                                                        </div>
+                                                        <small>92%</small>
+                                                    </td>
+                                                    <td>3.2</td>
+                                                    <td><span class="badge bg-warning">Good</span></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="card dashboard-card">
+                                <div class="card-header bg-white border-0">
+                                    <h5 class="mb-0">Upcoming Events</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="list-group list-group-flush">
+                                        <div class="list-group-item border-0 px-0 py-2">
+                                            <div class="d-flex">
+                                                <div class="me-3 text-center" style="width: 40px;">
+                                                    <div class="bg-primary text-white rounded p-1">
+                                                        <div class="fw-bold">15</div>
+                                                        <small>MAR</small>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <h6 class="mb-1">Parent-Teacher Meeting</h6>
+                                                    <small class="text-muted">10:00 AM - 12:00 PM</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="list-group-item border-0 px-0 py-2">
+                                            <div class="d-flex">
+                                                <div class="me-3 text-center" style="width: 40px;">
+                                                    <div class="bg-success text-white rounded p-1">
+                                                        <div class="fw-bold">20</div>
+                                                        <small>MAR</small>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <h6 class="mb-1">School Sports Day</h6>
+                                                    <small class="text-muted">All Day</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="list-group-item border-0 px-0 py-2">
+                                            <div class="d-flex">
+                                                <div class="me-3 text-center" style="width: 40px;">
+                                                    <div class="bg-info text-white rounded p-1">
+                                                        <div class="fw-bold">25</div>
+                                                        <small>MAR</small>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <h6 class="mb-1">Science Fair</h6>
+                                                    <small class="text-muted">09:00 AM - 03:00 PM</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="list-group-item border-0 px-0 py-2">
+                                            <div class="d-flex">
+                                                <div class="me-3 text-center" style="width: 40px;">
+                                                    <div class="bg-warning text-white rounded p-1">
+                                                        <div class="fw-bold">30</div>
+                                                        <small>MAR</small>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <h6 class="mb-1">Quarterly Exams Begin</h6>
+                                                    <small class="text-muted">All Day</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            };
+            
+            // Set the content based on role
+            contentContainer.innerHTML = dashboardContent[role];
+            
+            // Initialize charts (would be replaced with actual chart library in production)
+            if (role === 'admin') {
+                // This would be replaced with actual chart initialization code
+                console.log('Initializing admin charts...');
+            }
+        }
+    </script>
+</body>
+</html>
