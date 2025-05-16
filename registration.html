@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | SchoolSys</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .auth-container {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 20px 0;
+        }
+        .auth-card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+        .auth-icon {
+            font-size: 2.5rem;
+            color: #0d6efd;
+            margin-bottom: 1rem;
+        }
+        .nav-pills .nav-link.active {
+            background-color: #0d6efd;
+        }
+        .nav-pills .nav-link {
+            color: #495057;
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-8">
+                    <div class="auth-card card">
+                        <div class="card-body p-4">
+                            <div class="text-center mb-4">
+                                <div class="auth-icon">
+                                    <i class="fas fa-user-plus"></i>
+                                </div>
+                                <h2 class="fw-bold">Create Your Account</h2>
+                                <p class="text-muted">Join our educational community today</p>
+                            </div>
+                            
+                            <ul class="nav nav-pills mb-4 justify-content-center" id="registerTab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="student-tab" data-bs-toggle="pill" data-bs-target="#student" type="button">Student</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="teacher-tab" data-bs-toggle="pill" data-bs-target="#teacher" type="button">Teacher</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="admin-tab" data-bs-toggle="pill" data-bs-target="#admin" type="button">Administrator</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="school-tab" data-bs-toggle="pill" data-bs-target="#school" type="button">School</button>
+                                </li>
+                            </ul>
+                            
+                            <div class="tab-content" id="registerTabContent">
+                                <!-- Student Registration -->
+                                <div class="tab-pane fade show active" id="student" role="tabpanel">
+                                    <form>
+                                        <div class="row g-3">
+                                            <div class="col-md-6">
+                                                <label for="sFirstName" class="form-label">First Name</label>
+                                                <input type="text" class="form-control" id="sFirstName" required>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="sLastName" class="form-label">Last Name</label>
+                                                <input type="text" class="form-control" id="sLastName" required>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="sEmail" class="form-label">Email</label>
+                                                <input type="email" class="form-control" id="sEmail" required>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="sDob" class="form-label">Date of Birth</label>
+                                                <input type="date" class="form-control" id="sDob" required>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="sPassword" class="form-label">Password</label>
+                                                <input type="password" class="form-control" id="sPassword" required>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="sConfirmPassword" class="form-label">Confirm Password</label>
+                                                <input type="password" class="form-control" id="sConfirmPassword" required>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="sTerms" required>
+                                                    <label class="form-check-label" for="sTerms">
+                                                        I agree to the <a href="#" class="text-decoration-none">Terms of Service</a> and <a href="#" class="text-decoration-none">Privacy Policy</a>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <button type="submit" class="btn btn-primary w-100 py-2">Register as Student</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                
+                                <!-- Teacher Registration -->
+                                <div class="tab-pane fade" id="teacher" role="tabpanel">
+                                    <form>
+                                        <div class="row g-3">
+                                            <div class="col-md-6">
+                                                <label for="tFirstName" class="form-label">First Name</label>
+                                                <input type="text" class="form-control" id="tFirstName" required>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="tLastName" class="form-label">Last Name</label>
+                                                <input type="text" class="form-control" id="tLastName" required>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="tEmail" class="form-label">Email</label>
+                                                <input type="email" class="form-control" id="tEmail" required>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="tPhone" class="form-label">Phone Number</label>
+                                                <input type="tel" class="form-control" id="tPhone" required>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="tPassword" class="form-label">Password</label>
+                                                <input type="password" class="form-control" id="tPassword" required>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="tConfirmPassword" class="form-label">Confirm Password</label>
+                                                <input type="password" class="form-control" id="tConfirmPassword" required>
+                                            </div>
+                                            <div class="col-12">
+                                                <label for="tQualifications" class="form-label">Qualifications</label>
+                                                <textarea class="form-control" id="tQualifications" rows="2"></textarea>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="tTerms" required>
+                                                    <label class="form-check-label" for="tTerms">
+                                                        I agree to the <a href="#" class="text-decoration-none">Terms of Service</a> and <a href="#" class="text-decoration-none">Privacy Policy</a>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <button type="submit" class="btn btn-primary w-100 py-2">Register as Teacher</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                
+                                <!-- Administrator Registration -->
+                                <div class="tab-pane fade" id="admin" role="tabpanel">
+                                    <form>
+                                        <div class="row g-3">
+                                            <div class="col-md-6">
+                                                <label for="aFirstName" class="form-label">First Name</label>
+                                                <input type="text" class="form-control" id="aFirstName" required>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="aLastName" class="form-label">Last Name</label>
+                                                <input type="text" class="form-control" id="aLastName" required>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="aEmail" class="form-label">Email</label>
+                                                <input type="email" class="form-control" id="aEmail" required>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="aPhone" class="form-label">Phone Number</label>
+                                                <input type="tel" class="form-control" id="aPhone" required>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="aPassword" class="form-label">Password</label>
+                                                <input type="password" class="form-control" id="aPassword" required>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="aConfirmPassword" class="form-label">Confirm Password</label>
+                                                <input type="password" class="form-control" id="aConfirmPassword" required>
+                                            </div>
+                                            <div class="col-12">
+                                                <label for="aSchoolCode" class="form-label">School Registration Code</label>
+                                                <input type="text" class="form-control" id="aSchoolCode" placeholder="Provided by your school" required>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="aTerms" required>
+                                                    <label class="form-check-label" for="aTerms">
+                                                        I agree to the <a href="#" class="text-decoration-none">Terms of Service</a> and <a href="#" class="text-decoration-none">Privacy Policy</a>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <button type="submit" class="btn btn-primary w-100 py-2">Register as Administrator</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                
+                                <!-- School Registration -->
+                                <div class="tab-pane fade" id="school" role="tabpanel">
+                                    <form>
+                                        <div class="row g-3">
+                                            <div class="col-12">
+                                                <label for="schName" class="form-label">School Name</label>
+                                                <input type="text" class="form-control" id="schName" required>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="schEmail" class="form-label">Contact Email</label>
+                                                <input type="email" class="form-control" id="schEmail" required>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="schPhone" class="form-label">Contact Phone</label>
+                                                <input type="tel" class="form-control" id="schPhone" required>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="schPassword" class="form-label">Password</label>
+                                                <input type="password" class="form-control" id="schPassword" required>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="schConfirmPassword" class="form-label">Confirm Password</label>
+                                                <input type="password" class="form-control" id="schConfirmPassword" required>
+                                            </div>
+                                            <div class="col-12">
+                                                <label for="schAddress" class="form-label">Address</label>
+                                                <textarea class="form-control" id="schAddress" rows="2" required></textarea>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label for="schCity" class="form-label">City</label>
+                                                <input type="text" class="form-control" id="schCity" required>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label for="schState" class="form-label">State/Province</label>
+                                                <input type="text" class="form-control" id="schState" required>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label for="schZip" class="form-label">ZIP/Postal Code</label>
+                                                <input type="text" class="form-control" id="schZip" required>
+                                            </div>
+                                            <div class="col-12">
+                                                <label for="schType" class="form-label">School Type</label>
+                                                <select class="form-select" id="schType" required>
+                                                    <option value="">Select school type</option>
+                                                    <option value="public">Public School</option>
+                                                    <option value="private">Private School</option>
+                                                    <option value="charter">Charter School</option>
+                                                    <option value="university">University/College</option>
+                                                    <option value="other">Other</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="schTerms" required>
+                                                    <label class="form-check-label" for="schTerms">
+                                                        I agree to the <a href="#" class="text-decoration-none">Terms of Service</a> and <a href="#" class="text-decoration-none">Privacy Policy</a>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <button type="submit" class="btn btn-primary w-100 py-2">Register School</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            
+                            <div class="text-center mt-4">
+                                <p class="mb-0">Already have an account? <a href="login.html" class="text-decoration-none">Sign in</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
