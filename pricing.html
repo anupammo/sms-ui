@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing | SchoolSys</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+        }
+        .pricing-card {
+            transition: transform 0.3s;
+            border: none;
+        }
+        .pricing-card:hover {
+            transform: translateY(-10px);
+        }
+        .pricing-header {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        .popular-plan {
+            border: 2px solid #0d6efd;
+            position: relative;
+            overflow: hidden;
+        }
+        .popular-badge {
+            position: absolute;
+            top: 15px;
+            right: -30px;
+            background: #0d6efd;
+            color: white;
+            padding: 3px 30px;
+            transform: rotate(45deg);
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-school me-2"></i>
+                SchoolSys
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="features.html">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="pricing.html">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Login
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Admin</a></li>
+                            <li><a class="dropdown-item" href="#">Teacher</a></li>
+                            <li><a class="dropdown-item" href="#">Student</a></li>
+                            <li><a class="dropdown-item" href="#">Parent</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-4">Simple, Transparent Pricing</h1>
+            <p class="lead">Choose the perfect plan for your institution's needs</p>
+        </div>
+    </section>
+
+    <!-- Pricing Plans -->
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <div class="btn-group" role="group">
+                    <input type="radio" class="btn-check" name="billing" id="monthly" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary" for="monthly">Monthly Billing</label>
+                    
+                    <input type="radio" class="btn-check" name="billing" id="annual" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="annual">Annual Billing (Save 20%)</label>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Basic Plan -->
+                <div class="col-lg-4">
+                    <div class="card h-100 pricing-card shadow-sm">
+                        <div class="card-body p-0">
+                            <div class="pricing-header bg-light p-4 text-center">
+                                <h3 class="fw-bold mb-3">Basic</h3>
+                                <h4 class="display-4 fw-bold mb-3">$49<small class="text-muted fs-6">/mo</small></h4>
+                                <p class="text-muted">For small schools just getting started</p>
+                            </div>
+                            <div class="p-4">
+                                <ul class="list-unstyled mb-4">
+                                    <li class="mb-3"><i class="fas fa-check text-success me-2"></i> Up to 100 students</li>
+                                    <li class="mb-3"><i class="fas fa-check text-success me-2"></i> Core student management</li>
+                                    <li class="mb-3"><i class="fas fa-check text-success me-2"></i> Basic attendance tracking</li>
+                                    <li class="mb-3"><i class="fas fa-check text-success me-2"></i> Simple gradebook</li>
+                                    <li class="mb-3"><i class="fas fa-check text-success me-2"></i> Email support</li>
+                                    <li class="mb-3 text-muted"><i class="fas fa-times me-2"></i> Parent portal</li>
+                                    <li class="mb-3 text-muted"><i class="fas fa-times me-2"></i> Advanced reporting</li>
+                                    <li class="mb-3 text-muted"><i class="fas fa-times me-2"></i> Custom branding</li>
+                                </ul>
+                                <a href="contact.html" class="btn btn-outline-primary w-100">Get Started</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Standard Plan (Popular) -->
+                <div class="col-lg-4">
+                    <div class="card h-100 pricing-card shadow-sm popular-plan">
+                        <span class="popular-badge">POPULAR</span>
+                        <div class="card-body p-0">
+                            <div class="pricing-header bg-primary text-white p-4 text-center">
+                                <h3 class="fw-bold mb-3">Standard</h3>
+                                <h4 class="display-4 fw-bold mb-3">$99<small class="opacity-75 fs-6">/mo</small></h4>
+                                <p>For growing schools with more complex needs</p>
+                            </div>
+                            <div class="p-4">
+                                <ul class="list-unstyled mb-4">
+                                    <li class="mb-3"><i class="fas fa-check text-success me-2"></i> Up to 500 students</li>
+                                    <li class="mb-3"><i class="fas fa-check text-success me-2"></i> All Basic features</li>
+                                    <li class="mb-3"><i class="fas fa-check text-success me-2"></i> Parent portal</li>
+                                    <li class="mb-3"><i class="fas fa-check text-success me-2"></i> Advanced gradebook</li>
+                                    <li class="mb-3"><i class="fas fa-check text-success me-2"></i> Class scheduling</li>
+                                    <li class="mb-3"><i class="fas fa-check text-success me-2"></i> Basic reporting</li>
+                                    <li class="mb-3"><i class="fas fa-check text-success me-2"></i> Priority email support</li>
+                                    <li class="mb-3 text-muted"><i class="fas fa-times me-2"></i> Custom branding</li>
+                                </ul>
+                                <a href="contact.html" class="btn btn-primary w-100">Get Started</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Premium Plan -->
+                <div class="col-lg-4">
+                    <div class="card h-100 pricing-card shadow-sm">
+                        <div class="card-body p-0">
+                            <div class="pricing-header bg-light p-4 text-center">
+                                <h3 class="fw-bold mb-3">Premium</h3>
+                                <h4 class="display-4 fw-bold mb-3">$199<small class="text-muted fs-6">/mo</small></h4>
+                                <p class="text-muted">For large institutions needing full features</p>
+                            </div>
+                            <div class="p-4">
+                                <ul class="list-unstyled mb-4">
+                                    <li class="mb-3"><i class="fas fa-check text-success me-2"></i> Unlimited students</li>
+                                    <li class="mb-3"><i class="fas fa-check text-success me-2"></i> All Standard features</li>
+                                    <li class="mb-3"><i class="fas fa-check text-success me-2"></i> Custom branding</li>
+                                    <li class="mb-3"><i class="fas fa-check text-success me-2"></i> Advanced analytics</li>
+                                    <li class="mb-3"><i class="fas fa-check text-success me-2"></i> API access</li>
+                                    <li class="mb-3"><i class="fas fa-check text-success me-2"></i> SSO integration</li>
+                                    <li class="mb-3"><i class="fas fa-check text-success me-2"></i> Dedicated account manager</li>
+                                    <li class="mb-3"><i class="fas fa-check text-success me-2"></i> 24/7 phone support</li>
+                                </ul>
+                                <a href="contact.html" class="btn btn-outline-primary w-100">Get Started</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enterprise Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h2 class="fw-bold mb-4">Enterprise Solutions</h2>
+                    <p class="lead">Need something more customized for your school district or large institution?</p>
+                    <p>Our enterprise plans offer customized solutions tailored to your specific requirements, including:</p>
+                    <ul class="list-group list-group-flush mb-4">
+                        <li class="list-group-item bg-transparent ps-0"><i class="fas fa-check text-primary me-2"></i> District-wide deployments</li>
+                        <li class="list-group-item bg-transparent ps-0"><i class="fas fa-check text-primary me-2"></i> Custom feature development</li>
+                        <li class="list-group-item bg-transparent ps-0"><i class="fas fa-check text-primary me-2"></i> On-premise installation</li>
+                        <li class="list-group-item bg-transparent ps-0"><i class="fas fa-check text-primary me-2"></i> Advanced data migration services</li>
+                        <li class="list-group-item bg-transparent ps-0"><i class="fas fa-check text-primary me-2"></i> Dedicated training and support</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary">Contact Sales</a>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3" alt="Enterprise Solutions" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Frequently Asked Questions</h2>
+                <p class="lead text-muted">Find answers to common questions about our pricing</p>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item border-0 shadow-sm mb-3">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                    What's included in the free trial?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Our 14-day free trial includes access to all features of the Standard plan, limited to 50 students. You can upgrade at any time during the trial or continue with a paid plan when your trial ends.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item border-0 shadow-sm mb-3">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                    Can I change plans later?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Yes, you can upgrade or downgrade your plan at any time. When you upgrade, you'll immediately get access to the new features, and we'll prorate the difference in cost. Downgrades take effect at your next billing cycle.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item border-0 shadow-sm mb-3">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                                    Are there any setup fees?
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    No, there are no setup fees for our Basic, Standard, or Premium plans. Enterprise solutions may have implementation fees depending on the scope of customization required.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item border-0 shadow-sm mb-3">
+                            <h2 class="accordion-header" id="headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
+                                    How does billing work?
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    We bill monthly or annually in advance. You can pay by credit card or request invoice billing for annual plans. All plans automatically renew unless canceled before the renewal date.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item border-0 shadow-sm">
+                            <h2 class="accordion-header" id="headingFive">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive">
+                                    Is there a discount for non-profits?
+                                </button>
+                            </h2>
+                            <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Yes, registered non-profit educational institutions qualify for a 15% discount on any plan. Contact our sales team with proof of your non-profit status to apply this discount.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container text-center">
+            <h2 class="fw-bold mb-4">Still have questions?</h2>
+            <p class="lead mb-5">Our team is ready to help you choose the perfect plan for your needs.</p>
+            <a href="contact.html" class="btn btn-light btn-lg px-4">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5 class="fw-bold mb-3">
+                        <i class="fas fa-school me-2"></i>
+                        SchoolSys
+                    </h5>
+                    <p>Comprehensive School Management System for modern educational institutions of all sizes.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <h5 class="fw-bold mb-3">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-white text-decoration-none">Home</a></li>
+                        <li class="mb-2"><a href="about.html" class="text-white text-decoration-none">About</a></li>
+                        <li class="mb-2"><a href="features.html" class="text-white text-decoration-none">Features</a></li>
+                        <li class="mb-2"><a href="pricing.html" class="text-white text-decoration-none">Pricing</a></li>
+                        <li class="mb-2"><a href="contact.html" class="text-white text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <h5 class="fw-bold mb-3">Login</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Admin</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Teacher</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Student</a></li>
+                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Parent</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="fw-bold mb-3">Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> 123 Education St, Learnville</li>
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i> (123) 456-7890</li>
+                        <li class="mb-2"><i class="fas fa-envelope me-2"></i> info@schoolsys.com</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="small mb-0">&copy; 2023 SchoolSys. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="small mb-0">
+                        <a href="#" class="text-white text-decoration-none">Privacy Policy</a> | 
+                        <a href="#" class="text-white text-decoration-none">Terms of Service</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
