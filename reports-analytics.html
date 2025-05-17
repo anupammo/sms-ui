@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports & Analytics | School Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .report-card {
+            transition: transform 0.3s;
+            height: 100%;
+        }
+        .report-card:hover {
+            transform: translateY(-5px);
+        }
+        .chart-container {
+            height: 300px;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar would be included here -->
+            <div class="col-md-9 col-lg-10 ms-sm-auto p-4 content-area">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h2>Reports & Analytics</h2>
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        <div class="btn-group me-2">
+                            <button class="btn btn-sm btn-outline-secondary">Export All</button>
+                        </div>
+                        <div class="dropdown">
+                            <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
+                                <span data-feather="calendar"></span>
+                                This Month
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <li><a class="dropdown-item" href="#">This Week</a></li>
+                                <li><a class="dropdown-item" href="#">This Month</a></li>
+                                <li><a class="dropdown-item" href="#">This Term</a></li>
+                                <li><a class="dropdown-item" href="#">This Year</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-md-4 mb-3">
+                        <div class="card report-card shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title">Student Performance</h5>
+                                <div class="chart-container">
+                                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="img-fluid rounded" alt="Student performance chart">
+                                </div>
+                                <a href="student-performance-reports.html" class="btn btn-primary mt-3">View Reports</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="card report-card shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title">Teacher Performance</h5>
+                                <div class="chart-container">
+                                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="img-fluid rounded" alt="Teacher performance chart">
+                                </div>
+                                <a href="teacher-performance-reports.html" class="btn btn-primary mt-3">View Reports</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="card report-card shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title">Financial & Attendance</h5>
+                                <div class="chart-container">
+                                    <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="img-fluid rounded" alt="Financial chart">
+                                </div>
+                                <a href="financial-attendance-reports.html" class="btn btn-primary mt-3">View Reports</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card shadow-sm">
+                    <div class="card-header">
+                        <h5>Quick Statistics</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-3 text-center">
+                                <h3>85%</h3>
+                                <p class="text-muted">Average Attendance</p>
+                            </div>
+                            <div class="col-md-3 text-center">
+                                <h3>92%</h3>
+                                <p class="text-muted">Pass Rate</p>
+                            </div>
+                            <div class="col-md-3 text-center">
+                                <h3>78%</h3>
+                                <p class="text-muted">Fee Collection</p>
+                            </div>
+                            <div class="col-md-3 text-center">
+                                <h3>4.2/5</h3>
+                                <p class="text-muted">Teacher Rating</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
