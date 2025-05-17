@@ -1,0 +1,115 @@
+<div class="col-md-9 col-lg-10 ms-sm-auto p-4 content-area">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h2>Student Performance Reports</h2>
+        <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group me-2">
+                <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Print</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-4">
+            <label for="classSelect" class="form-label">Class</label>
+            <select class="form-select" id="classSelect">
+                <option selected>All Classes</option>
+                <option>Grade 1</option>
+                <option>Grade 2</option>
+                <option>Grade 3</option>
+            </select>
+        </div>
+        <div class="col-md-4">
+            <label for="subjectSelect" class="form-label">Subject</label>
+            <select class="form-select" id="subjectSelect">
+                <option selected>All Subjects</option>
+                <option>Mathematics</option>
+                <option>Science</option>
+                <option>English</option>
+            </select>
+        </div>
+        <div class="col-md-4">
+            <label for="termSelect" class="form-label">Term</label>
+            <select class="form-select" id="termSelect">
+                <option selected>Term 1</option>
+                <option>Term 2</option>
+                <option>Term 3</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-header">
+            <h5>Performance Overview</h5>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Student ID</th>
+                            <th>Name</th>
+                            <th>Class</th>
+                            <th>Average Score</th>
+                            <th>Improvement</th>
+                            <th>Rank</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>S1001</td>
+                            <td>John Smith</td>
+                            <td>Grade 5A</td>
+                            <td>88%</td>
+                            <td><span class="text-success">↑ 5%</span></td>
+                            <td>2/30</td>
+                            <td><a href="#" class="btn btn-sm btn-outline-primary">Details</a></td>
+                        </tr>
+                        <tr>
+                            <td>S1002</td>
+                            <td>Emma Johnson</td>
+                            <td>Grade 5A</td>
+                            <td>92%</td>
+                            <td><span class="text-success">↑ 3%</span></td>
+                            <td>1/30</td>
+                            <td><a href="#" class="btn btn-sm btn-outline-primary">Details</a></td>
+                        </tr>
+                        <tr>
+                            <td>S1003</td>
+                            <td>Michael Brown</td>
+                            <td>Grade 5A</td>
+                            <td>81%</td>
+                            <td><span class="text-danger">↓ 2%</span></td>
+                            <td>3/30</td>
+                            <td><a href="#" class="btn btn-sm btn-outline-primary">Details</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-header">
+                    <h5>Subject-wise Performance</h5>
+                </div>
+                <div class="card-body">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="img-fluid rounded" alt="Subject performance chart">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-header">
+                    <h5>Class Comparison</h5>
+                </div>
+                <div class="card-body">
+                    <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="img-fluid rounded" alt="Class comparison chart">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
