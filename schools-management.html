@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schools Management | SchoolSys</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #3f51b5;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+        }
+        
+        .data-card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .school-card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .school-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .school-logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stats-badge {
+            background-color: #e9ecef;
+            border-radius: 20px;
+            padding: 5px 10px;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid py-4">
+        <div class="row mb-4">
+            <div class="col-12">
+                <h2 class="fw-bold">Schools Management</h2>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="admin-dashboard.html">Dashboard</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Schools</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="data-card card">
+                    <div class="card-header bg-white border-0">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0">All Schools & Branches</h5>
+                            <button class="btn btn-sm btn-primary">
+                                <i class="fas fa-plus me-1"></i> Add School
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-4">
+                            <div class="col-md-6 col-lg-4">
+                                <div class="school-card card">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-start">
+                                            <img src="https://via.placeholder.com/80" alt="School Logo" class="school-logo me-3">
+                                            <div>
+                                                <h5 class="mb-1">Greenwood High (Main)</h5>
+                                                <p class="text-muted mb-2"><i class="fas fa-map-marker-alt me-1"></i> 123 Education St, Learnville</p>
+                                                <div class="d-flex gap-2 mb-3">
+                                                    <span class="stats-badge"><i class="fas fa-users me-1"></i> 1,245 Students</span>
+                                                    <span class="stats-badge"><i class="fas fa-chalkboard-teacher me-1"></i> 68 Teachers</span>
+                                                </div>
+                                                <div class="d-flex gap-2">
+                                                    <button class="btn btn-sm btn-outline-primary">Manage</button>
+                                                    <button class="btn btn-sm btn-outline-secondary">View</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 col-lg-4">
+                                <div class="school-card card">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-start">
+                                            <img src="https://via.placeholder.com/80" alt="School Logo" class="school-logo me-3">
+                                            <div>
+                                                <h5 class="mb-1">Greenwood East</h5>
+                                                <p class="text-muted mb-2"><i class="fas fa-map-marker-alt me-1"></i> 456 Learning Ave, Eastville</p>
+                                                <div class="d-flex gap-2 mb-3">
+                                                    <span class="stats-badge"><i class="fas fa-users me-1"></i> 842 Students</span>
+                                                    <span class="stats-badge"><i class="fas fa-chalkboard-teacher me-1"></i> 42 Teachers</span>
+                                                </div>
+                                                <div class="d-flex gap-2">
+                                                    <button class="btn btn-sm btn-outline-primary">Manage</button>
+                                                    <button class="btn btn-sm btn-outline-secondary">View</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 col-lg-4">
+                                <div class="school-card card">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-start">
+                                            <img src="https://via.placeholder.com/80" alt="School Logo" class="school-logo me-3">
+                                            <div>
+                                                <h5 class="mb-1">Greenwood West</h5>
+                                                <p class="text-muted mb-2"><i class="fas fa-map-marker-alt me-1"></i> 789 Knowledge Rd, Westtown</p>
+                                                <div class="d-flex gap-2 mb-3">
+                                                    <span class="stats-badge"><i class="fas fa-users me-1"></i> 723 Students</span>
+                                                    <span class="stats-badge"><i class="fas fa-chalkboard-teacher me-1"></i> 38 Teachers</span>
+                                                </div>
+                                                <div class="d-flex gap-2">
+                                                    <button class="btn btn-sm btn-outline-primary">Manage</button>
+                                                    <button class="btn btn-sm btn-outline-secondary">View</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 col-lg-4">
+                                <div class="school-card card">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-start">
+                                            <img src="https://via.placeholder.com/80" alt="School Logo" class="school-logo me-3">
+                                            <div>
+                                                <h5 class="mb-1">Greenwood International</h5>
+                                                <p class="text-muted mb-2"><i class="fas fa-map-marker-alt me-1"></i> 101 Global St, Cosmocity</p>
+                                                <div class="d-flex gap-2 mb-3">
+                                                    <span class="stats-badge"><i class="fas fa-users me-1"></i> 1,532 Students</span>
+                                                    <span class="stats-badge"><i class="fas fa-chalkboard-teacher me-1"></i> 85 Teachers</span>
+                                                </div>
+                                                <div class="d-flex gap-2">
+                                                    <button class="btn btn-sm btn-outline-primary">Manage</button>
+                                                    <button class="btn btn-sm btn-outline-secondary">View</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 col-lg-4">
+                                <div class="school-card card">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-start">
+                                            <img src="https://via.placeholder.com/80" alt="School Logo" class="school-logo me-3">
+                                            <div>
+                                                <h5 class="mb-1">Greenwood Elementary</h5>
+                                                <p class="text-muted mb-2"><i class="fas fa-map-marker-alt me-1"></i> 202 Basics Blvd, Foundational</p>
+                                                <div class="d-flex gap-2 mb-3">
+                                                    <span class="stats-badge"><i class="fas fa-users me-1"></i> 648 Students</span>
+                                                    <span class="stats-badge"><i class="fas fa-chalkboard-teacher me-1"></i> 32 Teachers</span>
+                                                </div>
+                                                <div class="d-flex gap-2">
+                                                    <button class="btn btn-sm btn-outline-primary">Manage</button>
+                                                    <button class="btn btn-sm btn-outline-secondary">View</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 col-lg-4">
+                                <div class="school-card card">
+                                    <div class="card-body text-center py-5">
+                                        <button class="btn btn-lg btn-outline-primary">
+                                            <i class="fas fa-plus me-2"></i> Add New School
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
