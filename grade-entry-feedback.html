@@ -1,0 +1,120 @@
+<div class="col-md-9 col-lg-10 ms-sm-auto p-4 content-area">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h2>Grade Entry & Feedback</h2>
+        <div class="btn-toolbar mb-2 mb-md-0">
+            <button class="btn btn-sm btn-outline-secondary">Save Draft</button>
+            <button class="btn btn-sm btn-primary ms-2">Submit Grades</button>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-4">
+            <label for="gradeClass" class="form-label">Class</label>
+            <select class="form-select" id="gradeClass">
+                <option>Grade 5A</option>
+                <option>Grade 4B</option>
+            </select>
+        </div>
+        <div class="col-md-4">
+            <label for="gradeSubject" class="form-label">Subject</label>
+            <select class="form-select" id="gradeSubject">
+                <option>Mathematics</option>
+                <option>Advanced Math</option>
+            </select>
+        </div>
+        <div class="col-md-4">
+            <label for="gradeType" class="form-label">Assessment Type</label>
+            <select class="form-select" id="gradeType">
+                <option>Term Test</option>
+                <option>Quiz</option>
+                <option>Assignment</option>
+                <option>Project</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-header">
+            <h5>Enter Grades for Mathematics - Term Test (Grade 5A)</h5>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Student ID</th>
+                            <th>Name</th>
+                            <th>Marks (Out of 100)</th>
+                            <th>Grade</th>
+                            <th>Feedback</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>S1001</td>
+                            <td>John Smith</td>
+                            <td><input type="number" class="form-control" value="85"></td>
+                            <td>A</td>
+                            <td><textarea class="form-control" rows="1">Excellent work!</textarea></td>
+                        </tr>
+                        <tr>
+                            <td>S1002</td>
+                            <td>Emma Johnson</td>
+                            <td><input type="number" class="form-control" value="92"></td>
+                            <td>A+</td>
+                            <td><textarea class="form-control" rows="1">Outstanding performance</textarea></td>
+                        </tr>
+                        <tr>
+                            <td>S1003</td>
+                            <td>Michael Brown</td>
+                            <td><input type="number" class="form-control" value="78"></td>
+                            <td>B+</td>
+                            <td><textarea class="form-control" rows="1">Good effort, needs more practice</textarea></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h5>Grade Distribution</h5>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-8">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="img-fluid rounded" alt="Grade distribution chart">
+                </div>
+                <div class="col-md-4">
+                    <div class="list-group">
+                        <div class="list-group-item">
+                            <div class="d-flex justify-content-between">
+                                <span>A+</span>
+                                <span class="badge bg-primary rounded-pill">2</span>
+                            </div>
+                        </div>
+                        <div class="list-group-item">
+                            <div class="d-flex justify-content-between">
+                                <span>A</span>
+                                <span class="badge bg-primary rounded-pill">5</span>
+                            </div>
+                        </div>
+                        <div class="list-group-item">
+                            <div class="d-flex justify-content-between">
+                                <span>B+</span>
+                                <span class="badge bg-primary rounded-pill">8</span>
+                            </div>
+                        </div>
+                        <div class="list-group-item">
+                            <div class="d-flex justify-content-between">
+                                <span>B</span>
+                                <span class="badge bg-primary rounded-pill">10</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
