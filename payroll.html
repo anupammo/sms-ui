@@ -1,0 +1,103 @@
+<div class="col-md-9 col-lg-10 ms-sm-auto content-area">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h2>Payroll & Salary Management</h2>
+        <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group me-2">
+                <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Print</button>
+            </div>
+            <button type="button" class="btn btn-sm btn-primary">Process Payroll</button>
+        </div>
+    </div>
+    
+    <div class="row mb-3">
+        <div class="col-md-3">
+            <label for="payrollMonth" class="form-label">Month</label>
+            <select class="form-select" id="payrollMonth">
+                <option selected>June 2023</option>
+                <option>May 2023</option>
+                <option>April 2023</option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <label for="payrollDepartment" class="form-label">Department</label>
+            <select class="form-select" id="payrollDepartment">
+                <option selected>All Departments</option>
+                <option>Teaching</option>
+                <option>Administration</option>
+                <option>Support Staff</option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <label for="payrollStatus" class="form-label">Status</label>
+            <select class="form-select" id="payrollStatus">
+                <option selected>All Statuses</option>
+                <option>Pending</option>
+                <option>Processed</option>
+                <option>Paid</option>
+            </select>
+        </div>
+        <div class="col-md-3 d-flex align-items-end">
+            <button class="btn btn-primary w-100">Filter</button>
+        </div>
+    </div>
+    
+    <div class="table-responsive">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Employee ID</th>
+                    <th>Name</th>
+                    <th>Department</th>
+                    <th>Basic Salary</th>
+                    <th>Allowances</th>
+                    <th>Deductions</th>
+                    <th>Net Salary</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>EMP1001</td>
+                    <td>John Smith</td>
+                    <td>Mathematics</td>
+                    <td>$3,000.00</td>
+                    <td>$500.00</td>
+                    <td>$200.00</td>
+                    <td>$3,300.00</td>
+                    <td><span class="badge bg-success">Paid</span></td>
+                    <td>
+                        <button class="btn btn-sm btn-primary">Payslip</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>EMP1002</td>
+                    <td>Sarah Johnson</td>
+                    <td>Science</td>
+                    <td>$3,200.00</td>
+                    <td>$400.00</td>
+                    <td>$150.00</td>
+                    <td>$3,450.00</td>
+                    <td><span class="badge bg-success">Paid</span></td>
+                    <td>
+                        <button class="btn btn-sm btn-primary">Payslip</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>EMP1003</td>
+                    <td>Michael Brown</td>
+                    <td>Administration</td>
+                    <td>$2,800.00</td>
+                    <td>$300.00</td>
+                    <td>$100.00</td>
+                    <td>$3,000.00</td>
+                    <td><span class="badge bg-warning">Pending</span></td>
+                    <td>
+                        <button class="btn btn-sm btn-primary">Process</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
