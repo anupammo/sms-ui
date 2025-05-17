@@ -1,0 +1,90 @@
+<div class="col-md-9 col-lg-10 ms-sm-auto content-area">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h2>Classes Overview</h2>
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addClassModal">Add New Class</button>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="card-img-top" alt="Grade 1">
+                <div class="card-body">
+                    <h5 class="card-title">Grade 1A</h5>
+                    <p class="card-text">
+                        <strong>Teacher:</strong> Ms. Anna Wilson<br>
+                        <strong>Students:</strong> 25<br>
+                        <strong>Subjects:</strong> 6
+                    </p>
+                    <a href="class-details.html" class="btn btn-primary">View Class</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="card-img-top" alt="Grade 2">
+                <div class="card-body">
+                    <h5 class="card-title">Grade 2B</h5>
+                    <p class="card-text">
+                        <strong>Teacher:</strong> Mr. David Lee<br>
+                        <strong>Students:</strong> 28<br>
+                        <strong>Subjects:</strong> 7
+                    </p>
+                    <a href="class-details.html" class="btn btn-primary">View Class</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="card-img-top" alt="Grade 3">
+                <div class="card-body">
+                    <h5 class="card-title">Grade 3A</h5>
+                    <p class="card-text">
+                        <strong>Teacher:</strong> Mrs. Sarah Johnson<br>
+                        <strong>Students:</strong> 30<br>
+                        <strong>Subjects:</strong> 8
+                    </p>
+                    <a href="class-details.html" class="btn btn-primary">View Class</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Add Class Modal -->
+    <div class="modal fade" id="addClassModal" tabindex="-1" aria-labelledby="addClassModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addClassModalLabel">Add New Class</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="className" class="form-label">Class Name</label>
+                            <input type="text" class="form-control" id="className" placeholder="e.g., Grade 1A">
+                        </div>
+                        <div class="mb-3">
+                            <label for="classTeacher" class="form-label">Class Teacher</label>
+                            <select class="form-select" id="classTeacher">
+                                <option selected>Select Teacher</option>
+                                <option>Ms. Anna Wilson</option>
+                                <option>Mr. David Lee</option>
+                                <option>Mrs. Sarah Johnson</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="classCapacity" class="form-label">Maximum Capacity</label>
+                            <input type="number" class="form-control" id="classCapacity" value="30">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary">Create Class</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
