@@ -1,0 +1,87 @@
+<div class="col-md-9 col-lg-10 ms-sm-auto content-area">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h2>Timetable Editor</h2>
+        <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group me-2">
+                <button type="button" class="btn btn-sm btn-outline-secondary">Print</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+            </div>
+            <button type="button" class="btn btn-sm btn-primary">Save Changes</button>
+        </div>
+    </div>
+    
+    <div class="row mb-3">
+        <div class="col-md-4">
+            <label for="timetableClass" class="form-label">Select Class</label>
+            <select class="form-select" id="timetableClass">
+                <option selected>Grade 1A</option>
+                <option>Grade 2B</option>
+                <option>Grade 3A</option>
+            </select>
+        </div>
+        <div class="col-md-4">
+            <label for="timetableTerm" class="form-label">Select Term</label>
+            <select class="form-select" id="timetableTerm">
+                <option selected>Term 1</option>
+                <option>Term 2</option>
+                <option>Term 3</option>
+            </select>
+        </div>
+        <div class="col-md-4 d-flex align-items-end">
+            <button class="btn btn-primary w-100">Load Timetable</button>
+        </div>
+    </div>
+    
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead class="table-light">
+                <tr>
+                    <th>Time/Day</th>
+                    <th>Monday</th>
+                    <th>Tuesday</th>
+                    <th>Wednesday</th>
+                    <th>Thursday</th>
+                    <th>Friday</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>08:00 - 08:45</td>
+                    <td class="subject-cell" contenteditable="true">Mathematics<br><small>Mr. David Lee</small></td>
+                    <td class="subject-cell" contenteditable="true">English<br><small>Ms. Anna Wilson</small></td>
+                    <td class="subject-cell" contenteditable="true">Science<br><small>Mrs. Sarah Johnson</small></td>
+                    <td class="subject-cell" contenteditable="true">Mathematics<br><small>Mr. David Lee</small></td>
+                    <td class="subject-cell" contenteditable="true">English<br><small>Ms. Anna Wilson</small></td>
+                </tr>
+                <tr>
+                    <td>08:45 - 09:30</td>
+                    <td class="subject-cell" contenteditable="true">English<br><small>Ms. Anna Wilson</small></td>
+                    <td class="subject-cell" contenteditable="true">Mathematics<br><small>Mr. David Lee</small></td>
+                    <td class="subject-cell" contenteditable="true">Physical Education<br><small>Mr. Robert Taylor</small></td>
+                    <td class="subject-cell" contenteditable="true">Science<br><small>Mrs. Sarah Johnson</small></td>
+                    <td class="subject-cell" contenteditable="true">Mathematics<br><small>Mr. David Lee</small></td>
+                </tr>
+                <tr>
+                    <td>09:30 - 10:15</td>
+                    <td colspan="5" class="text-center bg-light">Break Time</td>
+                </tr>
+                <tr>
+                    <td>10:15 - 11:00</td>
+                    <td class="subject-cell" contenteditable="true">Science<br><small>Mrs. Sarah Johnson</small></td>
+                    <td class="subject-cell" contenteditable="true">Arts<br><small>Ms. Emily Brown</small></td>
+                    <td class="subject-cell" contenteditable="true">Mathematics<br><small>Mr. David Lee</small></td>
+                    <td class="subject-cell" contenteditable="true">English<br><small>Ms. Anna Wilson</small></td>
+                    <td class="subject-cell" contenteditable="true">Science<br><small>Mrs. Sarah Johnson</small></td>
+                </tr>
+                <tr>
+                    <td>11:00 - 11:45</td>
+                    <td class="subject-cell" contenteditable="true">Social Studies<br><small>Mr. James Wilson</small></td>
+                    <td class="subject-cell" contenteditable="true">Science<br><small>Mrs. Sarah Johnson</small></td>
+                    <td class="subject-cell" contenteditable="true">English<br><small>Ms. Anna Wilson</small></td>
+                    <td class="subject-cell" contenteditable="true">Mathematics<br><small>Mr. David Lee</small></td>
+                    <td class="subject-cell" contenteditable="true">Social Studies<br><small>Mr. James Wilson</small></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
