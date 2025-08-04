@@ -1,78 +1,177 @@
-<div class="col-md-9 col-lg-10 ms-sm-auto content-area">
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h2>Announcements & Alerts</h2>
-        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newAnnouncementModal">New Announcement</button>
-    </div>
-    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Announcements & Alerts | SchoolSys</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .sidebar-link:hover {
+            background-color: rgba(13, 110, 253, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-light">
+<div class="container-fluid">
     <div class="row">
-        <div class="col-md-8">
-            <div class="card mb-4">
-                <div class="card-header bg-primary text-white">
-                    <h5 class="mb-0">School Holiday Announcement</h5>
+        <!-- Sidebar -->
+        <div class="col-12 col-lg-2 bg-white vh-100 p-3 d-flex flex-column position-fixed">
+            <a href="../dashboard.html" class="d-flex align-items-center mb-4 text-dark text-decoration-none">
+                <i class="fa-solid fa-bullhorn fs-4 me-2 text-primary"></i>
+                <span class="fs-4 fw-bold">EduTrack</span>
+            </a>
+            <hr>
+            <ul class="nav nav-pills flex-column mb-auto">
+                <li class="nav-item">
+                    <a href="../dashboard.html" class="nav-link sidebar-link">
+                        <i class="fa fa-home me-2"></i>Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a href="announcements.html" class="nav-link active sidebar-link" aria-current="page">
+                        <i class="fa fa-bullhorn me-2"></i>Announcements
+                    </a>
+                </li>
+                <li>
+                    <a href="messaging.html" class="nav-link text-dark sidebar-link">
+                        <i class="fa fa-envelope me-2"></i>Messaging
+                    </a>
+                </li>
+            </ul>
+            <hr>
+            <div class="dropdown">
+                <a href="../dashboard.html" class="d-flex align-items-center text-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80"
+                         onerror="this.onerror=null;this.src='https://placehold.co/100x100/EBF4FF/7F9CF5?text=CM';"
+                         alt="" width="32" height="32" class="rounded-circle me-2">
+                    <strong>Communications</strong>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                    <li><a class="dropdown-item" href="../dashboard.html">My Profile</a></li>
+                    <li><a class="dropdown-item" href="../dashboard.html">Settings</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="../auth/login.html">Sign out</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Main Content -->
+        <main class="col-md-9 col-lg-10 offset-lg-2 p-4 content-area">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h2>Announcements & Alerts</h2>
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newAnnouncementModal">New Announcement</button>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0">School Holiday Announcement</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">Dear parents and students, please be informed that the school will be closed on June 20th for a staff development day. Classes will resume as normal on June 21st.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">Posted on: June 10, 2023</small>
+                                <small class="text-muted">By: Principal Smith</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card mb-4">
+                        <div class="card-header bg-warning text-dark">
+                            <h5 class="mb-0">PTA Meeting Reminder</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">The next PTA meeting is scheduled for June 15th at 6:00 PM in the school auditorium. All parents are encouraged to attend.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">Posted on: June 5, 2023</small>
+                                <small class="text-muted">By: PTA Chairperson</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card mb-4">
+                        <div class="card-header bg-info text-white">
+                            <h5 class="mb-0">Sports Day Update</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">Sports Day has been rescheduled to June 25th due to weather forecasts. Please ensure your child comes prepared with appropriate sports attire and water bottles.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">Posted on: June 8, 2023</small>
+                                <small class="text-muted">By: Sports Coordinator</small>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <p class="card-text">Dear parents and students, please be informed that the school will be closed on June 20th for a staff development day. Classes will resume as normal on June 21st.</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <small class="text-muted">Posted on: June 10, 2023</small>
-                        <small class="text-muted">By: Principal Smith</small>
+                
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            <h5 class="mb-0">Quick Announcement</h5>
+                        </div>
+                        <div class="card-body">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="announcementTitle" class="form-label">Title</label>
+                                    <input type="text" class="form-control" id="announcementTitle" placeholder="Enter title">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="announcementMessage" class="form-label">Message</label>
+                                    <textarea class="form-control" id="announcementMessage" rows="3"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="announcementPriority" class="form-label">Priority</label>
+                                    <select class="form-select" id="announcementPriority">
+                                        <option>Normal</option>
+                                        <option>Important</option>
+                                        <option>Urgent</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Post Announcement</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
             
-            <div class="card mb-4">
-                <div class="card-header bg-warning text-dark">
-                    <h5 class="mb-0">PTA Meeting Reminder</h5>
-                </div>
-                <div class="card-body">
-                    <p class="card-text">The next PTA meeting is scheduled for June 15th at 6:00 PM in the school auditorium. All parents are encouraged to attend.</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <small class="text-muted">Posted on: June 5, 2023</small>
-                        <small class="text-muted">By: PTA Chairperson</small>
+            <!-- New Announcement Modal -->
+            <div class="modal fade" id="newAnnouncementModal" tabindex="-1" aria-labelledby="newAnnouncementModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="newAnnouncementModalLabel">Create New Announcement</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="modalAnnouncementTitle" class="form-label">Title</label>
+                                    <input type="text" class="form-control" id="modalAnnouncementTitle" placeholder="Enter title">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="modalAnnouncementMessage" class="form-label">Message</label>
+                                    <textarea class="form-control" id="modalAnnouncementMessage" rows="4"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="modalAnnouncementPriority" class="form-label">Priority</label>
+                                    <select class="form-select" id="modalAnnouncementPriority">
+                                        <option>Normal</option>
+                                        <option>Important</option>
+                                        <option>Urgent</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Post Announcement</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
-            
-            <div class="card mb-4">
-                <div class="card-header bg-info text-white">
-                    <h5 class="mb-0">Sports Day Update</h5>
-                </div>
-                <div class="card-body">
-                    <p class="card-text">Sports Day has been rescheduled to June 25th due to weather forecasts. Please ensure your child comes prepared with appropriate sports attire and water bottles.</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <small class="text-muted">Posted on: June 8, 2023</small>
-                        <small class="text-muted">By: Sports Coordinator</small>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-header bg-light">
-                    <h5 class="mb-0">Quick Announcement</h5>
-                </div>
-                <div class="card-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="announcementTitle" class="form-label">Title</label>
-                            <input type="text" class="form-control" id="announcementTitle" placeholder="Enter title">
-                        </div>
-                        <div class="mb-3">
-                            <label for="announcementMessage" class="form-label">Message</label>
-                            <textarea class="form-control" id="announcementMessage" rows="3"></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label for="announcementPriority" class="form-label">Priority</label>
-                            <select class="form-select" id="announcementPriority">
-                                <option>Normal</option>
-                                <option>Important</option>
-                                <option>Urgent</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="btn btn-primary w-100">Post Announcement</button>
-                    </form>
-                </div>
-            </div>
-        </div>
+        </main>
     </div>
 </div>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

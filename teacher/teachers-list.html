@@ -6,42 +6,38 @@
     <title>Teachers Management | SchoolSys</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary-color: #3f51b5;
         }
-        
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f8f9fa;
         }
-        
         .data-card {
             border: none;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
         }
-        
         .table-responsive {
             border-radius: 10px;
             overflow: hidden;
         }
-        
         .table th {
             background-color: var(--primary-color);
             color: white;
             border: none;
         }
-        
         .teacher-profile-img {
             width: 80px;
             height: 80px;
             border-radius: 50%;
             object-fit: cover;
         }
-        
         .subject-badge {
             background-color: #e9ecef;
             color: #495057;
@@ -52,244 +48,315 @@
             margin-bottom: 5px;
             display: inline-block;
         }
+        .sidebar-link:hover {
+            background-color: rgba(13, 110, 253, 0.1);
+        }
     </style>
 </head>
 <body>
-    <div class="container-fluid py-4">
-        <div class="row mb-4">
-            <div class="col-12">
-                <h2 class="fw-bold">Teachers Management</h2>
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="admin-dashboard.html">Dashboard</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Teachers</li>
-                    </ol>
-                </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-12 col-lg-2 bg-white vh-100 p-3 d-flex flex-column position-fixed">
+                <a href="../dashboard.html" class="d-flex align-items-center mb-4 text-dark text-decoration-none">
+                    <i class="bi bi-journal-bookmark-fill fs-4 me-2 text-primary"></i>
+                    <span class="fs-4 fw-bold">EduTrack</span>
+                </a>
+                <hr>
+                <ul class="nav nav-pills flex-column mb-auto">
+                    <li class="nav-item">
+                        <a href="dashboard.html" class="nav-link sidebar-link">
+                            <i class="bi bi-house-door me-2"></i>Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a href="teacher-timetable.html" class="nav-link text-dark sidebar-link">
+                            <i class="bi bi-calendar3 me-2"></i>Timetable
+                        </a>
+                    </li>
+                    <li>
+                        <a href="my-classes-subjects.html" class="nav-link text-dark sidebar-link">
+                            <i class="bi bi-people me-2"></i>Classes
+                        </a>
+                    </li>
+                    <li>
+                        <a href="grade-entry-feedback.html" class="nav-link text-dark sidebar-link">
+                            <i class="bi bi-journal-check me-2"></i>Grades
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../student/student-attendance.html" class="nav-link text-dark sidebar-link">
+                            <i class="bi bi-person-check me-2"></i>Attendance
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../communication/announcements.html" class="nav-link text-dark sidebar-link">
+                            <i class="bi bi-megaphone me-2"></i>Announcements
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../communication/messaging.html" class="nav-link text-dark sidebar-link">
+                            <i class="bi bi-chat-left-text me-2"></i>Messages
+                        </a>
+                    </li>
+                    <li>
+                        <a href="teachers-list.html" class="nav-link active sidebar-link">
+                            <i class="bi bi-person-badge me-2"></i>Teachers
+                        </a>
+                    </li>
+                </ul>
+                <hr>
+                <div class="dropdown">
+                    <a href="teacher-profile-settings.html" class="d-flex align-items-center text-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" 
+                             alt="Teacher Profile" width="32" height="32" class="rounded-circle me-2">
+                        <strong>Prof. Sarah Johnson</strong>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                        <li><a class="dropdown-item" href="teacher-profile-settings.html"><i class="bi bi-person me-2"></i>My Profile</a></li>
+                        <li><a class="dropdown-item" href="teacher-profile-settings.html"><i class="bi bi-gear me-2"></i>Settings</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="../auth/login.html"><i class="bi bi-box-arrow-right me-2"></i>Sign out</a></li>
+                    </ul>
+                </div>
             </div>
-        </div>
-        
-        <div class="row mb-4">
-            <div class="col-12">
-                <div class="data-card card">
-                    <div class="card-header bg-white border-0">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h5 class="mb-0">All Teachers</h5>
-                            <div>
-                                <button class="btn btn-sm btn-outline-secondary me-2">
-                                    <i class="fas fa-filter me-1"></i> Filter
-                                </button>
-                                <button class="btn btn-sm btn-outline-secondary me-2">
-                                    <i class="fas fa-download me-1"></i> Export
-                                </button>
-                                <button class="btn btn-sm btn-primary">
-                                    <i class="fas fa-plus me-1"></i> Add Teacher
-                                </button>
-                            </div>
-                        </div>
+            <!-- Main Content -->
+            <main class="col-12 col-lg-10 offset-lg-2 py-4">
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <h2 class="fw-bold">Teachers Management</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="dashboard.html">Dashboard</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Teachers</li>
+                            </ol>
+                        </nav>
                     </div>
-                    <div class="card-body">
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <div class="input-group">
-                                    <span class="input-group-text"><i class="fas fa-search"></i></span>
-                                    <input type="text" class="form-control" placeholder="Search teachers...">
+                </div>
+                
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="data-card card">
+                            <div class="card-header bg-white border-0">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h5 class="mb-0">All Teachers</h5>
+                                    <div>
+                                        <button class="btn btn-sm btn-outline-secondary me-2">
+                                            <i class="fas fa-filter me-1"></i> Filter
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-secondary me-2">
+                                            <i class="fas fa-download me-1"></i> Export
+                                        </button>
+                                        <button class="btn btn-sm btn-primary">
+                                            <i class="fas fa-plus me-1"></i> Add Teacher
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-3">
-                                <select class="form-select">
-                                    <option selected>All Departments</option>
-                                    <option>Mathematics</option>
-                                    <option>Science</option>
-                                    <option>Languages</option>
-                                    <option>Arts</option>
-                                </select>
-                            </div>
-                            <div class="col-md-3">
-                                <select class="form-select">
-                                    <option selected>All Status</option>
-                                    <option>Active</option>
-                                    <option>On Leave</option>
-                                    <option>Inactive</option>
-                                </select>
-                            </div>
-                        </div>
-                        
-                        <div class="table-responsive">
-                            <table class="table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>Teacher</th>
-                                        <th>ID</th>
-                                        <th>Subjects</th>
-                                        <th>Classes</th>
-                                        <th>Join Date</th>
-                                        <th>Status</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <img src="https://via.placeholder.com/80" alt="Teacher" class="teacher-profile-img me-3">
-                                                <div>
-                                                    <h6 class="mb-0">Sarah Johnson</h6>
-                                                    <small class="text-muted">sarah.j@example.com</small>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>TCH-2001</td>
-                                        <td>
-                                            <span class="subject-badge">Mathematics</span>
-                                            <span class="subject-badge">Calculus</span>
-                                        </td>
-                                        <td>Grade 10A, 11B</td>
-                                        <td>15 Aug 2020</td>
-                                        <td><span class="badge bg-success">Active</span></td>
-                                        <td>
-                                            <div class="dropdown">
-                                                <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                                                    <i class="fas fa-ellipsis-h"></i>
-                                                </button>
-                                                <ul class="dropdown-menu">
-                                                    <li><a class="dropdown-item" href="#"><i class="fas fa-eye me-2"></i> View</a></li>
-                                                    <li><a class="dropdown-item" href="#"><i class="fas fa-edit me-2"></i> Edit</a></li>
-                                                    <li><a class="dropdown-item" href="#"><i class="fas fa-calendar me-2"></i> Schedule</a></li>
-                                                    <li><hr class="dropdown-divider"></li>
-                                                    <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash me-2"></i> Delete</a></li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <img src="https://via.placeholder.com/80" alt="Teacher" class="teacher-profile-img me-3">
-                                                <div>
-                                                    <h6 class="mb-0">Michael Chen</h6>
-                                                    <small class="text-muted">michael.c@example.com</small>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>TCH-2002</td>
-                                        <td>
-                                            <span class="subject-badge">Physics</span>
-                                            <span class="subject-badge">Chemistry</span>
-                                        </td>
-                                        <td>Grade 9A, 10B, 12A</td>
-                                        <td>10 Jan 2021</td>
-                                        <td><span class="badge bg-success">Active</span></td>
-                                        <td>
-                                            <div class="dropdown">
-                                                <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                                                    <i class="fas fa-ellipsis-h"></i>
-                                                </button>
-                                                <ul class="dropdown-menu">
-                                                    <li><a class="dropdown-item" href="#"><i class="fas fa-eye me-2"></i> View</a></li>
-                                                    <li><a class="dropdown-item" href="#"><i class="fas fa-edit me-2"></i> Edit</a></li>
-                                                    <li><a class="dropdown-item" href="#"><i class="fas fa-calendar me-2"></i> Schedule</a></li>
-                                                    <li><hr class="dropdown-divider"></li>
-                                                    <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash me-2"></i> Delete</a></li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <img src="https://via.placeholder.com/80" alt="Teacher" class="teacher-profile-img me-3">
-                                                <div>
-                                                    <h6 class="mb-0">Lisa Rodriguez</h6>
-                                                    <small class="text-muted">lisa.r@example.com</small>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>TCH-2003</td>
-                                        <td>
-                                            <span class="subject-badge">English</span>
-                                            <span class="subject-badge">Literature</span>
-                                        </td>
-                                        <td>Grade 8A, 9B, 11A</td>
-                                        <td>05 Mar 2019</td>
-                                        <td><span class="badge bg-warning">On Leave</span></td>
-                                        <td>
-                                            <div class="dropdown">
-                                                <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                                                    <i class="fas fa-ellipsis-h"></i>
-                                                </button>
-                                                <ul class="dropdown-menu">
-                                                    <li><a class="dropdown-item" href="#"><i class="fas fa-eye me-2"></i> View</a></li>
-                                                    <li><a class="dropdown-item" href="#"><i class="fas fa-edit me-2"></i> Edit</a></li>
-                                                    <li><a class="dropdown-item" href="#"><i class="fas fa-calendar me-2"></i> Schedule</a></li>
-                                                    <li><hr class="dropdown-divider"></li>
-                                                    <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash me-2"></i> Delete</a></li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <img src="https://via.placeholder.com/80" alt="Teacher" class="teacher-profile-img me-3">
-                                                <div>
-                                                    <h6 class="mb-0">David Kim</h6>
-                                                    <small class="text-muted">david.k@example.com</small>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>TCH-2004</td>
-                                        <td>
-                                            <span class="subject-badge">History</span>
-                                            <span class="subject-badge">Geography</span>
-                                        </td>
-                                        <td>Grade 10A, 12B</td>
-                                        <td>22 Sep 2022</td>
-                                        <td><span class="badge bg-success">Active</span></td>
-                                        <td>
-                                            <div class="dropdown">
-                                                <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                                                    <i class="fas fa-ellipsis-h"></i>
-                                                </button>
-                                                <ul class="dropdown-menu">
-                                                    <li><a class="dropdown-item" href="#"><i class="fas fa-eye me-2"></i> View</a></li>
-                                                    <li><a class="dropdown-item" href="#"><i class="fas fa-edit me-2"></i> Edit</a></li>
-                                                    <li><a class="dropdown-item" href="#"><i class="fas fa-calendar me-2"></i> Schedule</a></li>
-                                                    <li><hr class="dropdown-divider"></li>
-                                                    <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash me-2"></i> Delete</a></li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        
-                        <div class="row mt-3">
-                            <div class="col-md-6">
-                                <p class="mb-0">Showing 1 to 4 of 12 entries</p>
-                            </div>
-                            <div class="col-md-6">
-                                <nav aria-label="Page navigation">
-                                    <ul class="pagination justify-content-end mb-0">
-                                        <li class="page-item disabled">
-                                            <a class="page-link" href="#" tabindex="-1">Previous</a>
-                                        </li>
-                                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item">
-                                            <a class="page-link" href="#">Next</a>
-                                        </li>
-                                    </ul>
-                                </nav>
+                            <div class="card-body">
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                            <input type="text" class="form-control" placeholder="Search teachers...">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <select class="form-select">
+                                            <option selected>All Departments</option>
+                                            <option>Mathematics</option>
+                                            <option>Science</option>
+                                            <option>Languages</option>
+                                            <option>Arts</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <select class="form-select">
+                                            <option selected>All Status</option>
+                                            <option>Active</option>
+                                            <option>On Leave</option>
+                                            <option>Inactive</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Teacher</th>
+                                                <th>ID</th>
+                                                <th>Subjects</th>
+                                                <th>Classes</th>
+                                                <th>Join Date</th>
+                                                <th>Status</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <img src="https://via.placeholder.com/80" alt="Teacher" class="teacher-profile-img me-3">
+                                                        <div>
+                                                            <h6 class="mb-0">Sarah Johnson</h6>
+                                                            <small class="text-muted">sarah.j@example.com</small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>TCH-2001</td>
+                                                <td>
+                                                    <span class="subject-badge">Mathematics</span>
+                                                    <span class="subject-badge">Calculus</span>
+                                                </td>
+                                                <td>Grade 10A, 11B</td>
+                                                <td>15 Aug 2020</td>
+                                                <td><span class="badge bg-success">Active</span></td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                                            <i class="fas fa-ellipsis-h"></i>
+                                                        </button>
+                                                        <ul class="dropdown-menu">
+                                                            <li><a class="dropdown-item" href="#"><i class="fas fa-eye me-2"></i> View</a></li>
+                                                            <li><a class="dropdown-item" href="#"><i class="fas fa-edit me-2"></i> Edit</a></li>
+                                                            <li><a class="dropdown-item" href="#"><i class="fas fa-calendar me-2"></i> Schedule</a></li>
+                                                            <li><hr class="dropdown-divider"></li>
+                                                            <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash me-2"></i> Delete</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <img src="https://via.placeholder.com/80" alt="Teacher" class="teacher-profile-img me-3">
+                                                        <div>
+                                                            <h6 class="mb-0">Michael Chen</h6>
+                                                            <small class="text-muted">michael.c@example.com</small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>TCH-2002</td>
+                                                <td>
+                                                    <span class="subject-badge">Physics</span>
+                                                    <span class="subject-badge">Chemistry</span>
+                                                </td>
+                                                <td>Grade 9A, 10B, 12A</td>
+                                                <td>10 Jan 2021</td>
+                                                <td><span class="badge bg-success">Active</span></td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                                            <i class="fas fa-ellipsis-h"></i>
+                                                        </button>
+                                                        <ul class="dropdown-menu">
+                                                            <li><a class="dropdown-item" href="#"><i class="fas fa-eye me-2"></i> View</a></li>
+                                                            <li><a class="dropdown-item" href="#"><i class="fas fa-edit me-2"></i> Edit</a></li>
+                                                            <li><a class="dropdown-item" href="#"><i class="fas fa-calendar me-2"></i> Schedule</a></li>
+                                                            <li><hr class="dropdown-divider"></li>
+                                                            <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash me-2"></i> Delete</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <img src="https://via.placeholder.com/80" alt="Teacher" class="teacher-profile-img me-3">
+                                                        <div>
+                                                            <h6 class="mb-0">Lisa Rodriguez</h6>
+                                                            <small class="text-muted">lisa.r@example.com</small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>TCH-2003</td>
+                                                <td>
+                                                    <span class="subject-badge">English</span>
+                                                    <span class="subject-badge">Literature</span>
+                                                </td>
+                                                <td>Grade 8A, 9B, 11A</td>
+                                                <td>05 Mar 2019</td>
+                                                <td><span class="badge bg-warning">On Leave</span></td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                                            <i class="fas fa-ellipsis-h"></i>
+                                                        </button>
+                                                        <ul class="dropdown-menu">
+                                                            <li><a class="dropdown-item" href="#"><i class="fas fa-eye me-2"></i> View</a></li>
+                                                            <li><a class="dropdown-item" href="#"><i class="fas fa-edit me-2"></i> Edit</a></li>
+                                                            <li><a class="dropdown-item" href="#"><i class="fas fa-calendar me-2"></i> Schedule</a></li>
+                                                            <li><hr class="dropdown-divider"></li>
+                                                            <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash me-2"></i> Delete</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <img src="https://via.placeholder.com/80" alt="Teacher" class="teacher-profile-img me-3">
+                                                        <div>
+                                                            <h6 class="mb-0">David Kim</h6>
+                                                            <small class="text-muted">david.k@example.com</small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>TCH-2004</td>
+                                                <td>
+                                                    <span class="subject-badge">History</span>
+                                                    <span class="subject-badge">Geography</span>
+                                                </td>
+                                                <td>Grade 10A, 12B</td>
+                                                <td>22 Sep 2022</td>
+                                                <td><span class="badge bg-success">Active</span></td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                                                            <i class="fas fa-ellipsis-h"></i>
+                                                        </button>
+                                                        <ul class="dropdown-menu">
+                                                            <li><a class="dropdown-item" href="#"><i class="fas fa-eye me-2"></i> View</a></li>
+                                                            <li><a class="dropdown-item" href="#"><i class="fas fa-edit me-2"></i> Edit</a></li>
+                                                            <li><a class="dropdown-item" href="#"><i class="fas fa-calendar me-2"></i> Schedule</a></li>
+                                                            <li><hr class="dropdown-divider"></li>
+                                                            <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-trash me-2"></i> Delete</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+                                <div class="row mt-3">
+                                    <div class="col-md-6">
+                                        <p class="mb-0">Showing 1 to 4 of 12 entries</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <nav aria-label="Page navigation">
+                                            <ul class="pagination justify-content-end mb-0">
+                                                <li class="page-item disabled">
+                                                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                                </li>
+                                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                <li class="page-item">
+                                                    <a class="page-link" href="#">Next</a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </main>
         </div>
     </div>
-
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

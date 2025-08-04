@@ -452,35 +452,35 @@
                 { 
                     title: 'Main', 
                     items: [
-                        { icon: 'fas fa-tachometer-alt', text: 'Dashboard', link: '#', active: true },
+                        { icon: 'fas fa-tachometer-alt', text: 'Dashboard', link: 'dashboard.html', active: true },
                         { icon: 'fas fa-calendar', text: 'Calendar', link: '#' }
                     ]
                 }
             ];
             
-            // Role-specific menu items
+            // Role-specific menu items with correct internal links
             const roleMenuItems = {
                 admin: [
                     { 
                         title: 'Administration', 
                         items: [
-                            { icon: 'fas fa-users', text: 'Students', link: '#' },
-                            { icon: 'fas fa-chalkboard-teacher', text: 'Teachers', link: '#' },
-                            { icon: 'fas fa-user-tie', text: 'Staff', link: '#' },
-                            { icon: 'fas fa-building', text: 'Classes', link: '#' }
+                            { icon: 'fas fa-users', text: 'Students', link: 'student/students-list.html' },
+                            { icon: 'fas fa-chalkboard-teacher', text: 'Teachers', link: 'teacher/teachers-list.html' },
+                            { icon: 'fas fa-user-tie', text: 'Staff', link: 'staff/employees-list.html' },
+                            { icon: 'fas fa-building', text: 'Classes', link: 'timetable/classes-overview.html' }
                         ]
                     },
                     { 
                         title: 'Management', 
                         items: [
                             { icon: 'fas fa-book', text: 'Academics', link: '#', submenu: [
-                                { text: 'Subjects', link: '#' },
-                                { text: 'Timetable', link: '#' },
+                                { text: 'Subjects', link: 'teacher/subject-list.html' },
+                                { text: 'Timetable', link: 'timetable/timetable-editor.html' },
                                 { text: 'Syllabus', link: '#' }
                             ]},
-                            { icon: 'fas fa-money-bill-wave', text: 'Finance', link: '#' },
-                            { icon: 'fas fa-chart-line', text: 'Reports', link: '#' },
-                            { icon: 'fas fa-cog', text: 'Settings', link: '#' }
+                            { icon: 'fas fa-money-bill-wave', text: 'Finance', link: 'admin/fees-tracking.html' },
+                            { icon: 'fas fa-chart-line', text: 'Reports', link: 'admin/reports-analytics.html' },
+                            { icon: 'fas fa-cog', text: 'Settings', link: 'admin/admin-profile.html' }
                         ]
                     }
                 ],
@@ -488,10 +488,10 @@
                     { 
                         title: 'Teaching', 
                         items: [
-                            { icon: 'fas fa-book-open', text: 'My Classes', link: '#' },
-                            { icon: 'fas fa-tasks', text: 'Assignments', link: '#' },
-                            { icon: 'fas fa-graduation-cap', text: 'Grades', link: '#' },
-                            { icon: 'fas fa-clock', text: 'Attendance', link: '#' }
+                            { icon: 'fas fa-book-open', text: 'My Classes', link: 'teacher/my-classes-subjects.html' },
+                            { icon: 'fas fa-tasks', text: 'Assignments', link: 'teacher/grade-entry-feedback.html' },
+                            { icon: 'fas fa-graduation-cap', text: 'Grades', link: 'teacher/grade-entry-feedback.html' },
+                            { icon: 'fas fa-clock', text: 'Attendance', link: 'teacher/dashboard.html' }
                         ]
                     },
                     { 
@@ -499,7 +499,7 @@
                         items: [
                             { icon: 'fas fa-book', text: 'Lesson Plans', link: '#' },
                             { icon: 'fas fa-file-alt', text: 'Exams', link: '#' },
-                            { icon: 'fas fa-chart-bar', text: 'Performance', link: '#' }
+                            { icon: 'fas fa-chart-bar', text: 'Performance', link: 'teacher/teacher-dashboard.html' }
                         ]
                     }
                 ],
@@ -507,10 +507,10 @@
                     { 
                         title: 'Learning', 
                         items: [
-                            { icon: 'fas fa-book', text: 'My Subjects', link: '#' },
-                            { icon: 'fas fa-tasks', text: 'Assignments', link: '#' },
-                            { icon: 'fas fa-chart-line', text: 'Grades', link: '#' },
-                            { icon: 'fas fa-calendar-check', text: 'Attendance', link: '#' }
+                            { icon: 'fas fa-book', text: 'My Subjects', link: 'student/student-timetable.html' },
+                            { icon: 'fas fa-tasks', text: 'Assignments', link: 'student/student-performance-reports.html' },
+                            { icon: 'fas fa-chart-line', text: 'Grades', link: 'student/student-grades.html' },
+                            { icon: 'fas fa-calendar-check', text: 'Attendance', link: 'student/student-attendance.html' }
                         ]
                     },
                     { 
@@ -518,7 +518,7 @@
                         items: [
                             { icon: 'fas fa-calendar', text: 'Events', link: '#' },
                             { icon: 'fas fa-users', text: 'Clubs', link: '#' },
-                            { icon: 'fas fa-file-invoice-dollar', text: 'Fees', link: '#' }
+                            { icon: 'fas fa-file-invoice-dollar', text: 'Fees', link: 'student/student-fees.html' }
                         ]
                     }
                 ],
@@ -537,7 +537,7 @@
                         items: [
                             { icon: 'fas fa-calendar', text: 'Events', link: '#' },
                             { icon: 'fas fa-file-invoice-dollar', text: 'Payments', link: '#' },
-                            { icon: 'fas fa-comments', text: 'Messages', link: '#' }
+                            { icon: 'fas fa-comments', text: 'Messages', link: 'communication/messaging.html' }
                         ]
                     }
                 ]
