@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Dashboard | SchoolSys</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { background: #f6f8fa; font-family: 'Inter', 'Segoe UI', Arial, sans-serif; }
+        .dashboard-header { background: linear-gradient(120deg, #0d6efd 60%, #fff 100%); color: #fff; padding: 48px 0 32px 0; text-align: center; }
+        .dashboard-header h1 { font-size: 2.5rem; font-weight: 800; }
+        .dashboard-header p { font-size: 1.2rem; }
+        .card { border: none; border-radius: 1.25rem; box-shadow: 0 4px 24px rgba(13,110,253,0.07); transition: transform 0.2s, box-shadow 0.2s; }
+        .card:hover { transform: translateY(-6px) scale(1.03); box-shadow: 0 8px 32px rgba(13,110,253,0.13); }
+        .card-icon { font-size: 2.2rem; color: #0d6efd; margin-bottom: 1rem; }
+        .profile-img { width: 70px; height: 70px; border-radius: 50%; object-fit: cover; border: 3px solid #0d6efd22; }
+        .logout-btn { position: absolute; top: 1.5rem; right: 2rem; }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+      <div class="container">
+        <a class="navbar-brand fw-bold text-primary" href="../index.html">
+          <i class="fa-solid fa-school me-2"></i>SchoolSys
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+            <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="../about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="../features.html">Features</a></li>
+            <li class="nav-item"><a class="nav-link" href="../pricing.html">Pricing</a></li>
+            <li class="nav-item"><a class="nav-link" href="../contact.html">Contact</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="loginDropdown" role="button" data-bs-toggle="dropdown">Login</a>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="loginDropdown">
+                <li><a class="dropdown-item" href="../admin/index.html">Admin</a></li>
+                <li><a class="dropdown-item" href="../teacher/index.html">Teacher</a></li>
+                <li><a class="dropdown-item" href="../staff/index.html">Staff</a></li>
+                <li><a class="dropdown-item" href="../student/index.html">Student</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="dashboard-header">
+        <div class="container">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Staff" class="profile-img mb-3">
+            <h1 class="mb-2">Welcome, Staff Member</h1>
+            <p class="mb-0">Access your tools, manage tasks, and stay connected.</p>
+            <a href="../auth/login.html" class="btn btn-outline-light logout-btn">Sign Out</a>
+        </div>
+    </div>
+    <div class="container py-5">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 text-center p-4">
+                    <div class="card-icon mb-2"><i class="fa-solid fa-calendar-check"></i></div>
+                    <h5 class="fw-bold">Attendance</h5>
+                    <p class="text-muted">Mark and review staff attendance records easily.</p>
+                    <a href="employee-attendance.html" class="btn btn-primary btn-sm mt-2">Go to Attendance</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 text-center p-4">
+                    <div class="card-icon mb-2"><i class="fa-solid fa-users"></i></div>
+                    <h5 class="fw-bold">Employee Directory</h5>
+                    <p class="text-muted">View and manage all staff members in one place.</p>
+                    <a href="employees-list.html" class="btn btn-primary btn-sm mt-2">View Directory</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 text-center p-4">
+                    <div class="card-icon mb-2"><i class="fa-solid fa-money-check-dollar"></i></div>
+                    <h5 class="fw-bold">Payroll</h5>
+                    <p class="text-muted">Access payroll information and manage payments.</p>
+                    <a href="payroll.html" class="btn btn-primary btn-sm mt-2">Go to Payroll</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer mt-5">
+      <div class="container text-center py-4">
+        <p class="small mb-0">&copy; 2025 SchoolSys. All rights reserved.</p>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -9,6 +9,16 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        body { font-family: 'Inter', 'Segoe UI', Arial, sans-serif; background: #f6f8fa; }
+        .hero-section {
+            background: linear-gradient(120deg, #0d6efd 60%, #fff 100%);
+            color: #fff;
+            padding: 120px 0 80px 0;
+            text-align: center;
+        }
+        .hero-section h1, .hero-section h2 { font-size: 3rem; font-weight: 800; letter-spacing: -1px; }
+        .hero-section p { font-size: 1.25rem; }
+        .btn-cta { font-size: 1.1rem; padding: 0.75rem 2.5rem; border-radius: 2rem; }
         .auth-container {
             background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3');
             background-size: cover;
@@ -18,39 +28,23 @@
             align-items: center;
             padding: 20px 0;
         }
-        .auth-card {
-            border: none;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-        }
-        .auth-icon {
-            font-size: 2.5rem;
-            color: #0d6efd;
-            margin-bottom: 1rem;
-        }
-        .divider {
-            position: relative;
-            text-align: center;
-            margin: 20px 0;
-        }
-        .divider::before {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background-color: #dee2e6;
-            z-index: -1;
-        }
-        .divider-text {
-            background-color: white;
-            padding: 0 15px;
-            display: inline-block;
+        .auth-card { border: none; border-radius: 10px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2); }
+        .auth-icon { font-size: 2.5rem; color: #0d6efd; margin-bottom: 1rem; }
+        .divider { position: relative; text-align: center; margin: 20px 0; }
+        .divider::before { content: ""; position: absolute; top: 50%; left: 0; right: 0; height: 1px; background-color: #dee2e6; z-index: -1; }
+        .divider-text { background-color: white; padding: 0 15px; display: inline-block; }
+        @media (max-width: 768px) {
+            .hero-section { padding: 80px 0 40px 0; }
         }
     </style>
 </head>
 <body>
+    <section class="hero-section">
+      <div class="container">
+        <h1 class="mb-3">Staff Login</h1>
+        <p class="mb-4">Sign in to access your staff dashboard and tools.</p>
+      </div>
+    </section>
     <div class="auth-container">
         <div class="container">
             <div class="row justify-content-center">
@@ -81,12 +75,10 @@
                                     </div>
                                     <a href="../auth/password-recovery.html" class="text-decoration-none">Forgot password?</a>
                                 </div>
-                                <button type="submit" class="btn btn-primary w-100 py-2 mb-3">Sign In</button>
-                                
+                                <a href="dashboard.html" class="btn btn-primary w-100 py-2 mb-3">Sign In</a>
                                 <div class="divider">
                                     <span class="divider-text text-muted">OR</span>
                                 </div>
-                                
                                 <div class="d-grid gap-2">
                                     <a href="#" class="btn btn-outline-secondary">
                                         <i class="fab fa-google me-2"></i> Sign in with Google
@@ -95,7 +87,6 @@
                                         <i class="fab fa-microsoft me-2"></i> Sign in with Microsoft
                                     </a>
                                 </div>
-                            </form>
                             
                             <div class="text-center mt-4">
                                 <p class="mb-0">Don't have an account? <a href="../auth/registration.html" class="text-decoration-none">Sign up</a></p>

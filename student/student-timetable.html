@@ -21,43 +21,73 @@
 </head>
 <body class="bg-light">
     <div class="container-fluid">
-        <div class="row">
-            <!-- Sidebar -->
-            <div class="col-12 col-lg-2 bg-white vh-100 p-3 d-flex flex-column position-fixed">
-                <a href="../dashboard.html" class="d-flex align-items-center mb-4 text-dark text-decoration-none">
-                    <i class="bi bi-journal-bookmark-fill fs-4 me-2"></i>
-                    <span class="fs-4 fw-bold">EduTrack</span>
-                </a>
-                <hr>
-                <ul class="nav nav-pills flex-column mb-auto">
-                    <li class="nav-item">
-                        <a href="dashboard.html" class="nav-link sidebar-link">
-                            <i class="bi bi-house-door me-2"></i>Dashboard
-                        </a>
-                    </li>
-                    <li>
-                        <a href="student-timetable.html" class="nav-link active sidebar-link" aria-current="page">
-                            <i class="bi bi-calendar3 me-2"></i>Timetable
-                        </a>
-                    </li>
-                    <li>
-                        <a href="student-grades.html" class="nav-link text-dark sidebar-link">
-                            <i class="bi bi-bar-chart-line me-2"></i>Grades
-                        </a>
-                    </li>
-                    <li>
-                        <a href="student-attendance.html" class="nav-link text-dark sidebar-link">
-                            <i class="bi bi-person-check me-2"></i>Attendance
-                        </a>
-                    </li>
-                    <li>
-                        <a href="student-fees.html" class="nav-link text-dark sidebar-link">
-                            <i class="bi bi-wallet2 me-2"></i>Fees
-                        </a>
-                    </li>
-                    <li>
-                        <a href="student-performance-reports.html" class="nav-link text-dark sidebar-link">
-                            <i class="bi bi-graph-up-arrow me-2"></i>Performance
+      <div class="row">
+        <!-- Sidebar -->
+        <div class="col-12 col-lg-2 bg-white vh-100 p-3 d-flex flex-column position-fixed">
+          <a href="../dashboard.html" class="d-flex align-items-center mb-4 text-dark text-decoration-none">
+            <i class="bi bi-journal-bookmark-fill fs-4 me-2"></i>
+            <span class="fs-4 fw-bold">EduTrack</span>
+          </a>
+          <hr>
+          <ul class="nav nav-pills flex-column mb-auto">
+            <li class="nav-item">
+              <a href="dashboard.html" class="nav-link sidebar-link">
+                <i class="bi bi-house-door me-2"></i>Dashboard
+              </a>
+            </li>
+            <li>
+              <a href="student-timetable.html" class="nav-link active sidebar-link" aria-current="page">
+                <i class="bi bi-calendar3 me-2"></i>Timetable
+              </a>
+            </li>
+            <li>
+              <a href="student-grades.html" class="nav-link text-dark sidebar-link">
+                <i class="bi bi-bar-chart-line me-2"></i>Grades
+              </a>
+            </li>
+            <li>
+              <a href="student-attendance.html" class="nav-link text-dark sidebar-link">
+                <i class="bi bi-person-check me-2"></i>Attendance
+              </a>
+            </li>
+            <li>
+              <a href="student-fees.html" class="nav-link text-dark sidebar-link">
+                <i class="bi bi-wallet2 me-2"></i>Fees
+              </a>
+            </li>
+            <li>
+              <a href="student-performance-reports.html" class="nav-link text-dark sidebar-link">
+                <i class="bi bi-graph-up-arrow me-2"></i>Performance
+              </a>
+            </li>
+            <li>
+              <a href="../communication/announcements.html" class="nav-link text-dark sidebar-link">
+                <i class="bi bi-megaphone me-2"></i>Announcements
+              </a>
+            </li>
+            <li>
+              <a href="../communication/messaging.html" class="nav-link text-dark sidebar-link">
+                <i class="bi bi-chat-left-text me-2"></i>Messages
+              </a>
+            </li>
+          </ul>
+          <hr>
+          <div class="dropdown">
+            <a href="student-dashboard.html" class="d-flex align-items-center text-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" 
+                   onerror="this.onerror=null;this.src='https://placehold.co/100x100/EBF4FF/7F9CF5?text=JS';"
+                   alt="" width="32" height="32" class="rounded-circle me-2">
+              <strong>John Smith</strong>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+              <li><a class="dropdown-item" href="student-dashboard.html">My Profile</a></li>
+              <li><a class="dropdown-item" href="profile.html">Profile</a></li>
+              <li><a class="dropdown-item" href="settings.html">Settings</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="../auth/login.html">Sign out</a></li>
+            </ul>
+          </div>
+        </div>
                         </a>
                     </li>
                     <li>
@@ -81,7 +111,8 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
                         <li><a class="dropdown-item" href="student-dashboard.html">My Profile</a></li>
-                        <li><a class="dropdown-item" href="student-dashboard.html">Settings</a></li>
+                        <li><a class="dropdown-item" href="profile.html">Profile</a></li>
+                        <li><a class="dropdown-item" href="settings.html">Settings</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="../auth/login.html">Sign out</a></li>
                     </ul>

@@ -9,38 +9,23 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        body { font-family: 'Inter', 'Segoe UI', Arial, sans-serif; background: #f6f8fa; }
         .hero-section {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 100px 0;
+            background: linear-gradient(120deg, #0d6efd 60%, #fff 100%);
+            color: #fff;
+            padding: 120px 0 80px 0;
+            text-align: center;
         }
-        .pricing-card {
-            transition: transform 0.3s;
-            border: none;
-        }
-        .pricing-card:hover {
-            transform: translateY(-10px);
-        }
-        .pricing-header {
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
-        }
-        .popular-plan {
-            border: 2px solid #0d6efd;
-            position: relative;
-            overflow: hidden;
-        }
-        .popular-badge {
-            position: absolute;
-            top: 15px;
-            right: -30px;
-            background: #0d6efd;
-            color: white;
-            padding: 3px 30px;
-            transform: rotate(45deg);
-            font-size: 12px;
+        .hero-section h1, .hero-section h2 { font-size: 3rem; font-weight: 800; letter-spacing: -1px; }
+        .hero-section p { font-size: 1.25rem; }
+        .btn-cta { font-size: 1.1rem; padding: 0.75rem 2.5rem; border-radius: 2rem; }
+        .pricing-card { transition: transform 0.3s; border: none; }
+        .pricing-card:hover { transform: translateY(-10px); }
+        .pricing-header { border-top-left-radius: 10px; border-top-right-radius: 10px; }
+        .popular-plan { border: 2px solid #0d6efd; position: relative; overflow: hidden; }
+        .popular-badge { position: absolute; top: 15px; right: -30px; background: #0d6efd; color: white; padding: 3px 30px; transform: rotate(45deg); font-size: 12px; }
+        @media (max-width: 768px) {
+            .hero-section { padding: 80px 0 40px 0; }
         }
     </style>
 </head>
@@ -48,7 +33,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="index">
+            <a class="navbar-brand" href="index.html">
                 <i class="fas fa-school me-2"></i>
                 SchoolSys
             </a>
@@ -58,19 +43,19 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index">Home</a>
+                        <a class="nav-link" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about">About</a>
+                        <a class="nav-link" href="about.html">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="features">Features</a>
+                        <a class="nav-link" href="features.html">Features</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="pricing">Pricing</a>
+                        <a class="nav-link active" href="pricing.html">Pricing</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contact">Contact</a>
+                        <a class="nav-link" href="contact.html">Contact</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
@@ -91,8 +76,12 @@
     <!-- Hero Section -->
     <section class="hero-section text-center">
         <div class="container">
-            <h1 class="display-4 fw-bold mb-4">Simple, Transparent Pricing</h1>
-            <p class="lead">Choose the perfect plan for your institution's needs</p>
+            <h1 class="display-4 fw-bold mb-3">Pricing</h1>
+            <p class="lead mb-4">Flexible plans for schools of all sizes. Choose the plan that fits your needs.</p>
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+              <a href="features.html" class="btn btn-primary btn-cta shadow">View Features</a>
+              <a href="contact.html" class="btn btn-outline-light btn-cta">Contact Us</a>
+            </div>
         </div>
     </section>
 
@@ -130,7 +119,7 @@
                                     <li class="mb-3 text-muted"><i class="fas fa-times me-2"></i> Advanced reporting</li>
                                     <li class="mb-3 text-muted"><i class="fas fa-times me-2"></i> Custom branding</li>
                                 </ul>
-                                <a href="contact" class="btn btn-outline-primary w-100">Get Started</a>
+                                <a href="contact" class="btn btn-outline-primary btn-cta w-100">Get Started</a>
                             </div>
                         </div>
                     </div>
