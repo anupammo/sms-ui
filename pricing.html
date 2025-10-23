@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="./assets/css/main.css" rel="stylesheet">
     <style>
         body { font-family: 'Inter', 'Segoe UI', Arial, sans-serif; background: #f6f8fa; }
         .hero-section {
@@ -31,9 +32,9 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand fw-bold text-primary" href="index.html">
                 <i class="fas fa-school me-2"></i>
                 SchoolSys
             </a>
@@ -62,10 +63,10 @@
                             Login
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Admin</a></li>
-                            <li><a class="dropdown-item" href="#">Teacher</a></li>
-                            <li><a class="dropdown-item" href="#">Student</a></li>
-                            <li><a class="dropdown-item" href="#">Parent</a></li>
+                            <li><a class="dropdown-item" href="./admin/index.html">Admin</a></li>
+                            <li><a class="dropdown-item" href="./teacher/index.html">Teacher</a></li>
+                            <li><a class="dropdown-item" href="./staff/index.html">Staff</a></li>
+                            <li><a class="dropdown-item" href="./student/index.html">Student</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -119,7 +120,7 @@
                                     <li class="mb-3 text-muted"><i class="fas fa-times me-2"></i> Advanced reporting</li>
                                     <li class="mb-3 text-muted"><i class="fas fa-times me-2"></i> Custom branding</li>
                                 </ul>
-                                <a href="contact" class="btn btn-outline-primary btn-cta w-100">Get Started</a>
+                                <a href="contact.html" class="btn btn-outline-primary btn-cta w-100">Get Started</a>
                             </div>
                         </div>
                     </div>
@@ -146,7 +147,7 @@
                                     <li class="mb-3"><i class="fas fa-check text-success me-2"></i> Priority email support</li>
                                     <li class="mb-3 text-muted"><i class="fas fa-times me-2"></i> Custom branding</li>
                                 </ul>
-                                <a href="contact" class="btn btn-primary w-100">Get Started</a>
+                                <a href="contact.html" class="btn btn-primary w-100">Get Started</a>
                             </div>
                         </div>
                     </div>
@@ -172,7 +173,7 @@
                                     <li class="mb-3"><i class="fas fa-check text-success me-2"></i> Dedicated account manager</li>
                                     <li class="mb-3"><i class="fas fa-check text-success me-2"></i> 24/7 phone support</li>
                                 </ul>
-                                <a href="contact" class="btn btn-outline-primary w-100">Get Started</a>
+                                <a href="contact.html" class="btn btn-outline-primary w-100">Get Started</a>
                             </div>
                         </div>
                     </div>
@@ -196,7 +197,7 @@
                         <li class="list-group-item bg-transparent ps-0"><i class="fas fa-check text-primary me-2"></i> Advanced data migration services</li>
                         <li class="list-group-item bg-transparent ps-0"><i class="fas fa-check text-primary me-2"></i> Dedicated training and support</li>
                     </ul>
-                    <a href="contact" class="btn btn-primary">Contact Sales</a>
+                    <a href="contact.html" class="btn btn-primary">Contact Sales</a>
                 </div>
                 <div class="col-lg-6">
                     <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3" alt="Enterprise Solutions" class="img-fluid rounded shadow">
@@ -291,7 +292,7 @@
         <div class="container text-center">
             <h2 class="fw-bold mb-4">Still have questions?</h2>
             <p class="lead mb-5">Our team is ready to help you choose the perfect plan for your needs.</p>
-            <a href="contact" class="btn btn-light btn-lg px-4">Contact Us</a>
+            <a href="contact.html" class="btn btn-light btn-lg px-4">Contact Us</a>
         </div>
     </section>
 
@@ -315,20 +316,20 @@
                 <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
                     <h5 class="fw-bold mb-3">Quick Links</h5>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="index" class="text-white text-decoration-none">Home</a></li>
-                        <li class="mb-2"><a href="about" class="text-white text-decoration-none">About</a></li>
-                        <li class="mb-2"><a href="features" class="text-white text-decoration-none">Features</a></li>
-                        <li class="mb-2"><a href="pricing" class="text-white text-decoration-none">Pricing</a></li>
-                        <li class="mb-2"><a href="contact" class="text-white text-decoration-none">Contact</a></li>
+                        <li class="mb-2"><a href="./index.html" class="text-white text-decoration-none">Home</a></li>
+                        <li class="mb-2"><a href="./about.html" class="text-white text-decoration-none">About</a></li>
+                        <li class="mb-2"><a href="./features.html" class="text-white text-decoration-none">Features</a></li>
+                        <li class="mb-2"><a href="./pricing.html" class="text-white text-decoration-none">Pricing</a></li>
+                        <li class="mb-2"><a href="./contact.html" class="text-white text-decoration-none">Contact</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
                     <h5 class="fw-bold mb-3">Login</h5>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Admin</a></li>
-                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Teacher</a></li>
-                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Student</a></li>
-                        <li class="mb-2"><a href="#" class="text-white text-decoration-none">Parent</a></li>
+                        <li class="mb-2"><a href="./admin/index.html" class="text-white text-decoration-none">Admin</a></li>
+                        <li class="mb-2"><a href="./teacher/index.html" class="text-white text-decoration-none">Teacher</a></li>
+                        <li class="mb-2"><a href="./staff/index.html" class="text-white text-decoration-none">Staff</a></li>
+                        <li class="mb-2"><a href="./student/index.html" class="text-white text-decoration-none">Student</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-4">
@@ -343,12 +344,13 @@
             <hr class="my-4">
             <div class="row">
                 <div class="col-md-6 text-center text-md-start">
-                    <p class="small mb-0">&copy; 2023 SchoolSys. All rights reserved.</p>
+                    <p class="small mb-0">&copy; 2025 SchoolSys. All rights reserved.</p>
                 </div>
                 <div class="col-md-6 text-center text-md-end">
                     <p class="small mb-0">
-                        <a href="#" class="text-white text-decoration-none">Privacy Policy</a> | 
-                        <a href="#" class="text-white text-decoration-none">Terms of Service</a>
+                        <a href="./privacy-policy.html" class="text-white text-decoration-none">Privacy Policy</a> | 
+                        <a href="./terms-of-service.html" class="text-white text-decoration-none">Terms of Service</a> |
+                        Design &amp; Development by <a href="https://anupammondal.in" target="_blank" rel="noopener" class="text-white text-decoration-underline">Anupam Mondaal</a>
                     </p>
                 </div>
             </div>

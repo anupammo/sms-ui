@@ -1,0 +1,56 @@
+/* Shared theme styles for SchoolSys - 2025 brand */
+:root {
+  --brand-primary: #0d6efd;
+  --brand-dark: #212529;
+  --brand-bg: #f6f8fa;
+}
+
+/* Base */
+html, body { height: 100%; }
+body {
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  background: var(--brand-bg);
+}
+
+/* Navbar */
+.navbar { box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+
+/* Hero */
+.hero-section {
+  background: linear-gradient(120deg, var(--brand-primary) 60%, #fff 100%);
+  color: #fff;
+  padding: 120px 0 80px 0;
+  text-align: center;
+}
+.hero-section h1,
+.hero-section h2 { font-size: 3rem; font-weight: 800; letter-spacing: -1px; }
+.hero-section p { font-size: 1.25rem; }
+
+/* CTAs */
+.btn-cta { font-size: 1.1rem; padding: 0.75rem 2.5rem; border-radius: 2rem; }
+
+/* Cards */
+.feature-card {
+  border: none;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 24px rgba(13,110,253,0.07);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.feature-card:hover { transform: translateY(-6px) scale(1.03); box-shadow: 0 8px 32px rgba(13,110,253,0.13); }
+
+/* Icons, avatars */
+.feature-icon { font-size: 2.5rem; color: var(--brand-primary); margin-bottom: 1rem; }
+.testimonial-img { width: 70px; height: 70px; border-radius: 50%; object-fit: cover; border: 3px solid rgba(13,110,253,0.13); }
+
+/* Footer */
+.footer { background: var(--brand-dark); color: #fff; padding: 2.5rem 0 1rem 0; }
+.footer a { color: #fff; opacity: 0.85; transition: opacity 0.2s; }
+.footer a:hover { opacity: 1; text-decoration: underline; }
+.quick-links li { margin-bottom: 0.5rem; }
+.social-icons a { font-size: 1.3rem; margin-right: 1rem; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-section { padding: 80px 0 40px 0; }
+  .feature-card { margin-bottom: 1.5rem; }
+}
