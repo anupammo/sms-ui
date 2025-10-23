@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add New Student | SchoolSys</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="../assets/css/main.css" rel="stylesheet">
+  <style>.sidebar-link:hover{background-color:rgba(13,110,253,0.1)}</style>
+</head>
+<body class="bg-light">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 col-lg-2 bg-white vh-100 p-3 d-flex flex-column position-fixed">
+      <a href="admin-dashboard.html" class="d-flex align-items-center mb-4 text-dark text-decoration-none">
+        <i class="fa-solid fa-user-graduate fs-4 me-2 text-primary"></i>
+        <span class="fs-4 fw-bold">SchoolSys</span>
+      </a>
+      <hr>
+      <ul class="nav nav-pills flex-column mb-auto">
+        <li class="nav-item"><a href="admin-dashboard.html" class="nav-link sidebar-link"><i class="fa fa-home me-2"></i>Dashboard</a></li>
+        <li><a href="school-management.html" class="nav-link text-dark sidebar-link"><i class="fa fa-school me-2"></i>School Management</a></li>
+        <li><a href="schools-list.html" class="nav-link text-dark sidebar-link"><i class="fa fa-list me-2"></i>Schools List</a></li>
+        <li><a href="fees-tracking.html" class="nav-link text-dark sidebar-link"><i class="fa fa-money-bill-wave me-2"></i>Fees Tracking</a></li>
+        <li><a href="reports-analytics.html" class="nav-link text-dark sidebar-link"><i class="fa fa-chart-line me-2"></i>Reports & Analytics</a></li>
+      </ul>
+      <hr>
+      <div class="dropdown">
+        <a href="admin-profile.html" class="d-flex align-items-center text-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" onerror="this.onerror=null;this.src='https://placehold.co/100x100/EBF4FF/7F9CF5?text=AD';" width="32" height="32" class="rounded-circle me-2" alt="">
+          <strong>Admin User</strong>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+          <li><a class="dropdown-item" href="admin-profile.html">My Profile</a></li>
+          <li><a class="dropdown-item" href="admin-profile.html">Settings</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="../auth/login.html">Sign out</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <main class="col-md-9 col-lg-10 offset-lg-2 p-4 content-area">
+      <div class="d-flex justify-content-between align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h2>Add New Student</h2>
+        <a href="../student/students-list.html" class="btn btn-secondary"><i class="fa fa-arrow-left me-1"></i> Back to Students List</a>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <form>
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="stFirstName" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="stFirstName" required>
+              </div>
+              <div class="col-md-6">
+                <label for="stLastName" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="stLastName" required>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="stEmail" class="form-label">Email</label>
+                <input type="email" class="form-control" id="stEmail">
+              </div>
+              <div class="col-md-6">
+                <label for="stPhone" class="form-label">Phone</label>
+                <input type="tel" class="form-control" id="stPhone">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="stDob" class="form-label">Date of Birth</label>
+                <input type="date" class="form-control" id="stDob">
+              </div>
+              <div class="col-md-6">
+                <label for="stClass" class="form-label">Class</label>
+                <input type="text" class="form-control" id="stClass" placeholder="e.g., Grade 5A">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="stAdmission" class="form-label">Admission Date</label>
+                <input type="date" class="form-control" id="stAdmission">
+              </div>
+              <div class="col-md-6">
+                <label for="stGuardian" class="form-label">Guardian Name</label>
+                <input type="text" class="form-control" id="stGuardian">
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="stAddress" class="form-label">Address</label>
+              <textarea id="stAddress" class="form-control" rows="2"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary"><i class="fa fa-save me-1"></i> Save Student</button>
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<footer class="bg-dark text-light py-4 mt-5">
+  <div class="container text-center small">
+    <div class="mb-1">
+      <a href="../help/index.html" class="text-light text-decoration-none me-2">Help Center</a>
+      <span class="text-secondary">|</span>
+      <a href="../privacy-policy.html" class="text-light text-decoration-none mx-2">Privacy</a>
+      <span class="text-secondary">|</span>
+      <a href="../terms-of-service.html" class="text-light text-decoration-none ms-2">Terms</a>
+    </div>
+    Design & Development by <a href="https://anupammondal.in" target="_blank" rel="noopener" class="text-light text-decoration-none">Anupam Mondaal</a>
+  </div>
+</footer>
+</body>
+</html>

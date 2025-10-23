@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Super Admin Login | SchoolSys</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="../assets/css/main.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body{font-family:'Inter','Segoe UI',Arial,sans-serif;background:#f6f8fa}
+    .auth-card{max-width:460px;margin:6rem auto;padding:2rem;border-radius:1rem;background:#fff;box-shadow:0 10px 30px rgba(13,110,253,.08)}
+    .brand{font-weight:800}
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-light bg-white border-bottom">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-primary" href="../index.html"><i class="fa-solid fa-school me-2"></i>SchoolSys</a>
+    </div>
+  </nav>
+  <main class="container">
+    <div class="auth-card">
+      <h3 class="mb-3">Super Admin</h3>
+      <p class="text-muted mb-4">Sign in to manage tenants, plans, and platform settings.</p>
+      <form onsubmit="return false;">
+        <div class="mb-3">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-control" placeholder="you@company.com">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Password</label>
+          <input type="password" class="form-control" placeholder="••••••••">
+        </div>
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="remember">
+            <label class="form-check-label" for="remember">Remember me</label>
+          </div>
+          <a href="../auth/password-recovery.html" class="small">Forgot password?</a>
+        </div>
+        <a href="./dashboard.html" class="btn btn-primary w-100">Sign In</a>
+      </form>
+    </div>
+  </main>
+  <footer class="bg-dark text-light py-4 mt-5"><div class="container text-center small"><div class="mb-1"><a href="../help/index.html" class="text-light text-decoration-none me-2">Help Center</a><span class="text-secondary">|</span><a href="../privacy-policy.html" class="text-light text-decoration-none mx-2">Privacy</a><span class="text-secondary">|</span><a href="../terms-of-service.html" class="text-light text-decoration-none ms-2">Terms</a></div>Design & Development by <a class="text-light text-decoration-none" href="https://anupammondal.in" target="_blank" rel="noopener">Anupam Mondaal</a></div></footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

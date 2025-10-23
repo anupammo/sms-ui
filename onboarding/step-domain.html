@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Onboarding — Choose Domain | SchoolSys</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="../assets/css/main.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+  <nav class="navbar navbar-light bg-white border-bottom">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-primary" href="../index.html"><i class="fa-solid fa-school me-2"></i>SchoolSys</a>
+    </div>
+  </nav>
+  <!-- Onboarding progress -->
+  <div class="bg-white border-bottom">
+    <div class="container py-3">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <span class="small text-muted">Setup progress</span>
+        <span class="small fw-semibold">Step 4 of 6</span>
+      </div>
+      <div class="progress" style="height: 8px;">
+        <div class="progress-bar bg-primary" role="progressbar" style="width: 64%" aria-valuenow="64" aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div class="d-flex justify-content-between small text-muted mt-2">
+        <span>School</span><span>Admin</span><span>Plan</span><span>Domain</span><span>Payment</span><span>Done</span>
+      </div>
+    </div>
+  </div>
+  <main class="container py-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h3 class="fw-bold">Step 4 of 6 — Choose Domain</h3>
+      <a href="step-plan.html" class="btn btn-outline-secondary">Back</a>
+    </div>
+    <div class="card border-0 shadow-sm">
+      <div class="card-body">
+        <form class="row g-3" onsubmit="return false;">
+          <div class="col-md-8">
+            <label class="form-label">Preferred Subdomain</label>
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="greenfield">
+              <span class="input-group-text">.schoolsys.com</span>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Region</label>
+            <select class="form-select"><option>US</option><option>EU</option><option>IN</option></select>
+          </div>
+          <div class="col-12 d-flex justify-content-end">
+            <a href="step-payment.html" class="btn btn-primary">Next</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+  <footer class="bg-dark text-light py-4 mt-5"><div class="container text-center small"><div class="mb-1"><a href="../help/index.html" class="text-light text-decoration-none me-2">Help Center</a><span class="text-secondary">|</span><a href="../privacy-policy.html" class="text-light text-decoration-none mx-2">Privacy</a><span class="text-secondary">|</span><a href="../terms-of-service.html" class="text-light text-decoration-none ms-2">Terms</a></div>Design & Development by <a class="text-light text-decoration-none" href="https://anupammondal.in" target="_blank" rel="noopener">Anupam Mondaal</a></div></footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

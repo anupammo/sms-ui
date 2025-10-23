@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Tenant | Super Admin | SchoolSys</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="../assets/css/main.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+  <nav class="navbar navbar-light bg-white border-bottom">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-primary" href="dashboard.html"><i class="fa-solid fa-school me-2"></i>SchoolSys</a>
+    </div>
+  </nav>
+  <main class="container py-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h3 class="fw-bold">Edit Tenant</h3>
+      <a href="tenants-list.html" class="btn btn-outline-secondary">Back</a>
+    </div>
+    <div class="card border-0 shadow-sm">
+      <div class="card-body">
+        <form onsubmit="return false;">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label">School/Organization Name</label>
+              <input type="text" class="form-control" value="Greenfield High">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Admin Email</label>
+              <input type="email" class="form-control" value="admin@greenfield.edu">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Subdomain</label>
+              <div class="input-group">
+                <input type="text" class="form-control" value="greenfield">
+                <span class="input-group-text">.schoolsys.com</span>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Plan</label>
+              <select class="form-select">
+                <option>Starter</option>
+                <option selected>Pro</option>
+                <option>Business</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <label class="form-label">Status</label>
+              <div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="status" checked>
+                  <label class="form-check-label">Active</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="status">
+                  <label class="form-check-label">Suspended</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex justify-content-end mt-4">
+            <a href="tenants-list.html" class="btn btn-primary">Save Changes</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+  <footer class="bg-dark text-light py-4 mt-5"><div class="container text-center small"><div class="mb-1"><a href="../help/index.html" class="text-light text-decoration-none me-2">Help Center</a><span class="text-secondary">|</span><a href="../privacy-policy.html" class="text-light text-decoration-none mx-2">Privacy</a><span class="text-secondary">|</span><a href="../terms-of-service.html" class="text-light text-decoration-none ms-2">Terms</a></div>Design & Development by <a href="https://anupammondal.in" target="_blank" rel="noopener" class="text-light text-decoration-none">Anupam Mondaal</a></div></footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
